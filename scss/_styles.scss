@@ -1,0 +1,36 @@
+.container{
+    width: 781px;
+    height: 800px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    margin: 80px auto;
+    & > img:nth-child(1){
+        width: 112px;
+        height: 18px;
+        margin-bottom: 50px;
+    }
+
+    & > img:nth-child(2){
+        max-width: 781px;
+        height: 482px;
+        margin-bottom: 100px;
+    }
+
+    & > button {
+        border: none;
+        width: 387px;
+        background-color: #62A1EB;
+        color: white;
+        font-size: 20px;
+        font-family: 'Roboto', sans-serif;
+        border-radius: 20px;
+        padding: 18px 52px;
+        &:hover{
+            background-color: #317AD0;
+            cursor: pointer;
+        }
+
+    }
+}

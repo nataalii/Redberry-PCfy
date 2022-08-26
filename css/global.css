@@ -1,0 +1,84 @@
+html, body, div, span, object, iframe, figure, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, code, em, img, small, strike, strong, sub, sup, tt, b, u, i, ol, ul, li, fieldset, form, label, table, caption, tbody, tfoot, thead, tr, th, td, main, canvas, embed, footer, header, nav, section, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  text-size-adjust: none;
+}
+
+footer, header, nav, section, main {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after, q:before, q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+input {
+  -webkit-appearance: none;
+  border-radius: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.container {
+  width: 781px;
+  height: 800px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+  margin: 80px auto;
+}
+.container > img:nth-child(1) {
+  width: 112px;
+  height: 18px;
+  margin-bottom: 50px;
+}
+.container > img:nth-child(2) {
+  max-width: 781px;
+  height: 482px;
+  margin-bottom: 100px;
+}
+.container > button {
+  border: none;
+  width: 387px;
+  background-color: #62A1EB;
+  color: white;
+  font-size: 20px;
+  font-family: "Roboto", sans-serif;
+  border-radius: 20px;
+  padding: 18px 52px;
+}
+.container > button:hover {
+  background-color: #317AD0;
+  cursor: pointer;
+}/*# sourceMappingURL=global.css.map */
