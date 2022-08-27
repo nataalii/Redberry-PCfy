@@ -122,29 +122,91 @@ body{
                             margin: 10px auto;
                             width: 100%;
                             cursor: pointer;
+                            
 
                         }
                         & > label {
                             font-weight: 600;
+                            font-size: 18px;
                         }
                         & > p {
                             color: #2E2E2E;
-                            font-weight: 500;
+                            font-weight: 300;
                             font-size: small;
                         }
                     }
                     
-
-                    select{
-                        padding: 15px 12px;
-                        border-radius: 8px ;
-                        outline: none;
-                        margin: 20px auto;
-                        background-color: #EBEBEB;
-                        width: 80%;
-                        appearance: none;
-                        border: none;
+                    .teams-dropdown{
+                        z-index: 2;
                     }
+                    .positions-dropdown{
+                        z-index: 1;
+                    }
+
+                    .teams-dropdown, .positions-dropdown{
+                        position: relative;
+                        margin-bottom: 60px;
+                        margin-top: 20px;
+                        max-width: 80%;
+                        left: 10%;
+                        & > img {
+                            position: absolute;
+                            z-index: 99;
+                            top: 20px;
+                            right: 20px;
+                            
+                        }
+                        
+
+                        & > input{
+                            border: none;
+                            outline: none;
+                            background-color: #EBEBEB ;
+                            padding: 15px 12px;
+                            border-radius: 8px ;
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            width: 100%;
+                            cursor: pointer;
+                            margin: auto;
+                            z-index: 2;
+                            &::placeholder{
+                                color: black;
+                                font-size: 18px;
+                            }
+
+                        }
+                        & > .option, .positions-option{
+                           position: absolute;
+                           width: 100%;
+                           top: 45px;
+                           background-color: white;
+                           box-shadow: 0px 4px 20px 8px rgba(0,0,0,0.19);
+                           border-radius: 5px;
+                           overflow: hidden;
+                           display: none;
+                           z-index: 1;
+                           & > div {
+                            padding: 10px 10px;
+                            cursor: pointer;
+                            &:hover{
+                                background-color: #E7F0F8;
+                            }
+                           }
+                        }
+
+                        
+                    }
+                    .teams-dropdown.active, .positions-dropdown.active{
+                        img{
+                            top: 22px;
+                        }
+                        .option, .positions-option{
+                            display: block;
+                        }
+                    }
+                    
                     button{
                         padding: 15px 12px;
                         border-radius: 8px;

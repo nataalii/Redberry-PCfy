@@ -10,7 +10,7 @@
 </head>
 <body>
     <div class="container-2">
-        <button><img src="../images/back-arrow.svg" alt="arrow"></button>
+        <button id="back-btn"><img src="../images/back-arrow.svg" alt="arrow"></button>
         <div class="titles">
             <h3>თანამშრომლის ინფო <hr></h3>
             <h3>ლეპტოპის მახასიათებლები <hr></h3>
@@ -18,7 +18,7 @@
     
         <section class="s-1">
             <div class="form-wrapper">
-                <form action="">
+                <form action="" type="submit">
                     <div class="input-flex">
                         <div class="input-wrapper">
                             <label for="name">სახელი</label> <br>
@@ -32,21 +32,19 @@
                         </div>
                     </div>
 
-                    <select name="team"  id="team" >
-                        <option value="team" selected disabled>თიმი</option>
-                        <option value="volvo">Volvo</option>
-                        <option value="saab">Saab</option>
-                        <option value="mercedes">Mercedes</option>
-                        <option value="audi">Audi</option>
-                      </select>
+                    <div class="teams-dropdown">
+                        <img src="../images/dropdown-arrow.svg" alt="dropdown arrow">
+                        <input type="text" class="textBox" placeholder="თიმი" name="team" readonly>
+                        <div class="option"></div>
+                    </div>
 
-                      <select name="position"  id="position">
-                        <option value="position" selected disabled>პოზიცია </option>
-                        <option value="volvo">Volvo</option>
-                        <option value="saab">Saab</option>
-                        <option value="mercedes">Mercedes</option>
-                        <option value="audi">Audi</option>
-                      </select>
+                    <div class="positions-dropdown">
+                        <img src="../images/dropdown-arrow.svg" alt="dropdown arrow">
+                        <input type="text" class="positionTextBox" placeholder="პოზიცია" name="position" readonly>
+                        <div class="positions-option">
+                        </div>
+                    </div>
+
                       
                     <div class="input-wrapper">
                         <label for="email">მეილი</label> <br>
@@ -69,6 +67,6 @@
         </div>
     </div>
 
-    
+    <script src="../app.js"></script>
 </body>
 </html>
