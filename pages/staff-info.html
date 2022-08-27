@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/global.css">
+    <title>თანამშრომლის ინფორმაცია</title>
+</head>
+<body>
+    <div class="container-2">
+        <button><img src="../images/back-arrow.svg" alt="arrow"></button>
+        <div class="titles">
+            <h3>თანამშრომლის ინფო <hr></h3>
+            <h3>ლეპტოპის მახასიათებლები <hr></h3>
+        </div>
+    
+        <section class="s-1">
+            <div class="form-wrapper">
+                <form action="">
+                    <div class="input-flex">
+                        <div class="input-wrapper">
+                            <label for="name">სახელი</label> <br>
+                            <input type="text" name="fname" id="name" placeholder="სახელი">
+                            <p>მინიმუმ 2 სიმბოლო, ქართული ასოები</p>
+                        </div>
+                        <div class="input-wrapper">
+                            <label for="surname">გვარი</label> <br>
+                            <input type="text" name="lname" id="surname" placeholder="გვარი">
+                            <p>მინიმუმ 2 სიმბოლო, ქართული ასოები</p>
+                        </div>
+                    </div>
+
+                    <select name="team"  id="team" >
+                        <option value="team" selected disabled>თიმი</option>
+                        <option value="volvo">Volvo</option>
+                        <option value="saab">Saab</option>
+                        <option value="mercedes">Mercedes</option>
+                        <option value="audi">Audi</option>
+                      </select>
+
+                      <select name="position"  id="position">
+                        <option value="position" selected disabled>პოზიცია </option>
+                        <option value="volvo">Volvo</option>
+                        <option value="saab">Saab</option>
+                        <option value="mercedes">Mercedes</option>
+                        <option value="audi">Audi</option>
+                      </select>
+                      
+                    <div class="input-wrapper">
+                        <label for="email">მეილი</label> <br>
+                        <input type="text" name="email" id="email" placeholder="მეილი">
+                        <p>უნდა მთავრდებოდეს @redberry.ge-ით</p>
+                    </div>
+                    <div class="input-wrapper">
+                        <label for="telephone">ტელეფონის ნომერი</label> <br>
+                        <input type="number" name="telephone" id="telephone" placeholder="ტელეფონის ნომერი">
+                        <p>უნდა აკმაყოფილებდეს ქართული მობ-ნომრის ფორმატს</p>
+                    </div>
+                    
+                    <button> <a href="">შემდეგი</a></button>
+                </form>
+            </div>
+        </section>
+    
+        <div class="logo-wrapper">
+            <img src="../images/logo2.svg" class="logo" alt="Logo">
+        </div>
+    </div>
+
+    
+</body>
+</html>
