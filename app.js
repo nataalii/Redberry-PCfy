@@ -5,9 +5,7 @@ backBtn.onclick = function() {
     location.href = '../index.html'
 }
 
-addItemBtn.onclick = function(){
-    location.href = '../pages/staff-info.html'
-}
+
 //teams api
 const selectDrop = document.querySelector('.option');
 const selectPos = document.querySelector('.positions-option')
