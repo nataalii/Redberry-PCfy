@@ -78,13 +78,32 @@ const team = document.getElementById('team')
 const position = document.getElementById('position')
 const geoAlph = /^[ა-ჰ]+$/;
 const engAlph = /^[a-zA-Z0-9@.]+$/;
-// const phoneNum = /^[\+]?[995]?[5]?[0-9]{2}[-\s\.]?[0-9]{2}[-\s\.]?[0-9]{2}[-\s\.]?[0-9]{2}$/
+const phoneNum = /^(\+?995)?(79\d{7}|5\d{8})$/
 
-form.addEventListener('submit', event => {
-    event.preventDefault()
+
+form.addEventListener('submit', (e) =>{
     validateInputs();
-    
+
+    if(isFormValid()== true){
+        form.submit();
+    } else {
+        e.preventDefault();
+
+    }
+
 })
+
+function isFormValid(){
+    const inputContainers = form.querySelectorAll('.input-wrapper');
+    let result = true
+    inputContainers.forEach((container) => {
+        if(container.classList.contains('error')){
+            result = false;
+        }
+    })
+
+    return result;
+}
 
 const validateInputs = () => {
     const firstNameValue = firstName.value.trim()
@@ -139,7 +158,7 @@ const validateInputs = () => {
     }
 
     // telephone number validation
-    if(phoneValue.length != 9){
+    if(!phoneNum.test(phoneValue)){
         setError(phone, 'უნდა აკმაყოფილებდეს ქართული მობ-ნომრის ფორმატს');
     } else {
         setSuccess(phone);
