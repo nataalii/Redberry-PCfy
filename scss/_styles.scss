@@ -18,18 +18,15 @@
         margin-bottom: 100px;
     }
 
-    & > button {
+    a > button {
         border: none;
         width: 387px;
         background-color: $button-color;
         padding: 18px 52px;
         border-radius: 20px;
-
-        a{
-            color: white;
-            font-size: 20px;
-            font-family: 'Roboto', sans-serif;
-        }
+        color: white;
+        font-size: 20px;
+        font-family: 'Roboto', sans-serif;
 
         &:hover{
             background-color: $button-hover-color;
@@ -43,7 +40,7 @@
 body{
     background-color: #f2f2f2;
     .container-2{
-        & > button{
+        & > a > button{
             background-color: #D9D9D9;
             width: 53px;
             height: 54px;
@@ -135,6 +132,35 @@ body{
                             font-size: small;
                         }
                     }
+
+                    .error {
+                        & > label{
+                            color: $error-color;
+                        }
+
+                        & > input{
+                            border: 1px solid $error-color;
+                        }
+                        
+                        & > p {
+                            color: $error-color;
+                        }
+
+                    }
+
+                    // .success {
+                    //     & > label{
+                    //         color: black
+                    //     }
+
+                    //     & > input{
+                    //         border: 1px solid #8AC0E2;
+                    //     }
+                        
+                    //     & > p {
+                    //         color: #2E2E2E;
+                    //     }
+                    // }
                     
                     .teams-dropdown{
                         z-index: 2;
@@ -198,6 +224,7 @@ body{
 
                         
                     }
+                    
                     .teams-dropdown.active, .positions-dropdown.active{
                         img{
                             top: 22px;
@@ -206,7 +233,12 @@ body{
                             display: block;
                         }
                     }
-                    
+                    .teams-dropdown.error, .positions-dropdown.error{
+                        input {
+                            border: 1px solid $error-color;
+                        }
+                    }
+
                     button{
                         padding: 15px 12px;
                         border-radius: 8px;
@@ -216,14 +248,13 @@ body{
                         margin-left: 70%;
                         margin-top: 40px;
                         cursor: pointer;
+                        color: white;
+                        font-size: 18px;
 
                         &:hover{
                             background-color: $button-hover-color;
                         }
-                        a{
-                            color: white;
-                            font-size: 18px;
-                        }
+                       
                     }
                 }
             }

@@ -68,19 +68,17 @@ a {
   height: 482px;
   margin-bottom: 100px;
 }
-.container > button {
+.container a > button {
   border: none;
   width: 387px;
   background-color: #62A1EB;
   padding: 18px 52px;
   border-radius: 20px;
-}
-.container > button a {
   color: white;
   font-size: 20px;
   font-family: "Roboto", sans-serif;
 }
-.container > button:hover {
+.container a > button:hover {
   background-color: #317AD0;
   cursor: pointer;
 }
@@ -88,7 +86,7 @@ a {
 body {
   background-color: #f2f2f2;
 }
-body .container-2 > button {
+body .container-2 > a > button {
   background-color: #D9D9D9;
   width: 53px;
   height: 54px;
@@ -169,6 +167,15 @@ body .container-2 .s-1 .form-wrapper form .input-wrapper > p {
   font-weight: 300;
   font-size: small;
 }
+body .container-2 .s-1 .form-wrapper form .error > label {
+  color: #E52F2F;
+}
+body .container-2 .s-1 .form-wrapper form .error > input {
+  border: 1px solid #E52F2F;
+}
+body .container-2 .s-1 .form-wrapper form .error > p {
+  color: #E52F2F;
+}
 body .container-2 .s-1 .form-wrapper form .teams-dropdown {
   z-index: 2;
 }
@@ -230,6 +237,9 @@ body .container-2 .s-1 .form-wrapper form .teams-dropdown.active img, body .cont
 body .container-2 .s-1 .form-wrapper form .teams-dropdown.active .option, body .container-2 .s-1 .form-wrapper form .teams-dropdown.active .positions-option, body .container-2 .s-1 .form-wrapper form .positions-dropdown.active .option, body .container-2 .s-1 .form-wrapper form .positions-dropdown.active .positions-option {
   display: block;
 }
+body .container-2 .s-1 .form-wrapper form .teams-dropdown.error input, body .container-2 .s-1 .form-wrapper form .positions-dropdown.error input {
+  border: 1px solid #E52F2F;
+}
 body .container-2 .s-1 .form-wrapper form button {
   padding: 15px 12px;
   border-radius: 8px;
@@ -239,13 +249,11 @@ body .container-2 .s-1 .form-wrapper form button {
   margin-left: 70%;
   margin-top: 40px;
   cursor: pointer;
+  color: white;
+  font-size: 18px;
 }
 body .container-2 .s-1 .form-wrapper form button:hover {
   background-color: #317AD0;
-}
-body .container-2 .s-1 .form-wrapper form button a {
-  color: white;
-  font-size: 18px;
 }
 body .container-2 .logo-wrapper {
   max-width: 1226px;

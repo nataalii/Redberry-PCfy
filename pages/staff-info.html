@@ -10,7 +10,9 @@
 </head>
 <body>
     <div class="container-2">
-        <button id="back-btn"><img src="../images/back-arrow.svg" alt="arrow"></button>
+        <a href="../index.html">
+            <button id="back-btn"><img src="../images/back-arrow.svg" alt="arrow"></button>
+        </a>
         <div class="titles">
             <h3>თანამშრომლის ინფო <hr></h3>
             <h3>ლეპტოპის მახასიათებლები <hr></h3>
@@ -18,46 +20,46 @@
     
         <section class="s-1">
             <div class="form-wrapper">
-                <form action="" type="submit">
+                <form action="../index.html" id="form">
                     <div class="input-flex">
                         <div class="input-wrapper">
-                            <label for="name">სახელი</label> <br>
-                            <input type="text" name="fname" id="name" placeholder="სახელი">
-                            <p>მინიმუმ 2 სიმბოლო, ქართული ასოები</p>
+                            <label for="name" id="name-label">სახელი</label> <br>
+                            <input type="text" name="fname" id="name" placeholder="გრიშა">
+                            <p class="error-message">მინიმუმ 2 სიმბოლო, ქართული ასოები</p>
                         </div>
                         <div class="input-wrapper">
-                            <label for="surname">გვარი</label> <br>
-                            <input type="text" name="lname" id="surname" placeholder="გვარი">
-                            <p>მინიმუმ 2 სიმბოლო, ქართული ასოები</p>
+                            <label for="lastname">გვარი</label> <br>
+                            <input type="text" name="lname" id="lastname" placeholder="ბაგრატიონი">
+                            <p class="error-message">მინიმუმ 2 სიმბოლო, ქართული ასოები</p>
                         </div>
                     </div>
 
                     <div class="teams-dropdown">
                         <img src="../images/dropdown-arrow.svg" alt="dropdown arrow">
-                        <input type="text" class="textBox" placeholder="თიმი" name="team" readonly>
+                        <input type="text" class="textBox" id="team" placeholder="თიმი" name="team" readonly>
+                        <p class="error-message"></p>
                         <div class="option"></div>
                     </div>
 
                     <div class="positions-dropdown">
                         <img src="../images/dropdown-arrow.svg" alt="dropdown arrow">
-                        <input type="text" class="positionTextBox" placeholder="პოზიცია" name="position" readonly>
+                        <input type="text" class="positionTextBox" id="position" placeholder="პოზიცია" name="position" readonly>
+                        <p class="error-message"></p>
                         <div class="positions-option">
                         </div>
                     </div>
-
                       
                     <div class="input-wrapper">
                         <label for="email">მეილი</label> <br>
-                        <input type="text" name="email" id="email" placeholder="მეილი">
-                        <p>უნდა მთავრდებოდეს @redberry.ge-ით</p>
+                        <input type="text" name="email" id="email" placeholder="grish666@redberry.ge">
+                        <p class="error-message">უნდა მთავრდებოდეს @redberry.ge-ით</p>
                     </div>
                     <div class="input-wrapper">
                         <label for="telephone">ტელეფონის ნომერი</label> <br>
-                        <input type="number" name="telephone" id="telephone" placeholder="ტელეფონის ნომერი">
-                        <p>უნდა აკმაყოფილებდეს ქართული მობ-ნომრის ფორმატს</p>
+                        <input type="tel" name="telephone" id="telephone" placeholder="+995 598 00 07 01">
+                        <p class="error-message">უნდა აკმაყოფილებდეს ქართული მობ-ნომრის ფორმატს</p>
                     </div>
-                    
-                    <button> <a href="">შემდეგი</a></button>
+                        <button type="submit" id="next-btn">შემდეგი</button>                        
                 </form>
             </div>
         </section>
