@@ -28,7 +28,93 @@
                             </div>
                        </div>
 
-                    
+                       <div class="input-box">
+                            <div class="input-wrapper">
+                                <label for="laptop-name" id="laptop-name-label">ლეპტოპის სახელი</label> <br>
+                                <input type="text" name="l-name" id="laptop-name" placeholder="HP">
+                                <p class="error-message">ლათინური ასოები, ციფრები, !@#$%^&*()_+= </p>
+                            </div>
+                            <div class="laptop-brand-dropdown">
+                                <img src="../images/dropdown-arrow.svg" alt="dropdown arrow">
+                                <input type="text" class="textBox" id="laptop-brand" placeholder="ლეპტოპის ბრენდი" name="laptop-brand" readonly>
+                                <p class="error-message"></p>
+                                <div class="option"></div>
+                            </div>
+
+                       </div>
+                       <hr>
+
+                       <div class="input-box">
+                            <div class="cpu-dropdown">
+                                <img src="../images/dropdown-arrow.svg" alt="dropdown arrow">
+                                <input type="text" class="textBox" id="cpu" placeholder="CPU" name="cpu" readonly>
+                                <p class="error-message"></p>
+                                <div class="option"></div>
+                            </div>
+                            <div class="input-wrapper" style="margin-right: 50px;">
+                                <label for="cpu-cores" id="cpu-cores-label">CPU-ს ბირთვი</label> <br>
+                                <input type="number" name="cores" id="cpu-cores" placeholder="14">
+                                <p class="error-message">მხოლოდ ციფრები</p>
+                            </div>
+                            <div class="input-wrapper">
+                                <label for="cpu-threads" id="cpu-threads-label">CPU-ს ნაკადი</label> <br>
+                                <input type="number" name="cpu-threads" id="cpu-threads" placeholder="365">
+                                <p class="error-message">მხოლოდ ციფრები</p>
+                            </div>
+                       </div>
+
+                       <div class="input-box">
+                            <div class="input-wrapper">
+                                <label for="ram" id="ram-label">ლეპტოპის RAM(GB)</label> <br>
+                                <input type="number" name="ram" id="ram" placeholder="16">
+                                <p class="error-message">მხოლოდ ციფრები</p>
+                            </div>
+
+                            <div class="input-wrapper radio">
+                                <h1>მეხსიერების ტიპი</h1>
+                                <label class="form-control" for="ssd">
+                                    <input type="radio" name="radio" id='ssd' />
+                                    SSD
+                                </label>
+                                  
+                                <label class="form-control" for="hdd">
+                                    <input type="radio" name="radio" id="hdd" />
+                                    HDD
+                                </label>
+                           </div>
+                       </div>
+
+                       <hr>
+                       <div class="input-box">
+                            <div class="input-wrapper">
+                                <label for="date" id="date-label">შეძენის რიცხვი</label> <br>
+                                <input name="date" id="date" placeholder="დდ / თთ / წწწწ" onfocus="(this.type='date')">
+                                <p class="error-message">არჩევითი</p>
+                            </div>
+                            <div class="input-wrapper">
+                                <label for="price" id="price-label">ლეპტოპის ფასი</label> <br>
+                                <input type="number" name="price" id="price" placeholder="0000" >
+                                <p class="error-message">მხოლოდ ციფრები</p>
+                            </div>
+                       </div>
+                       <div class="input-box">
+                            <div class="input-wrapper laptop-radio">
+                                <h1>ლეპტოპის მდგომარეობა</h1>
+                                <label class="form-control">
+                                    <input type="radio" name="laptop-radio" />
+                                    ახალი
+                                </label>
+                                <label class="form-control">
+                                    <input type="radio" name="laptop-radio" />
+                                    მეორადი
+                                </label>
+                            </div>
+                       </div>
+
+                       <div class="button-box">
+                        <a href="./staff-info.html" ><button>უკან</button></a>
+                        <a href=""><button>დამახსოვრება</button></a>
+                       </div>
                 </form>
             </div>
         </section>
