@@ -37,7 +37,6 @@ table {
 }
 
 input {
-  -webkit-appearance: none;
   border-radius: 0;
 }
 
@@ -81,6 +80,9 @@ a {
 .container a > button:hover {
   background-color: #317AD0;
   cursor: pointer;
+}
+.container a > button:focus {
+  background-color: #1A5DAB;
 }
 
 body {
@@ -155,6 +157,9 @@ body .container-2 .s-1 .form-wrapper form .input-wrapper > input {
   width: 100%;
   cursor: pointer;
 }
+body .container-2 .s-1 .form-wrapper form .input-wrapper > input:focus {
+  background-color: rgba(43, 75, 242, 0.06);
+}
 body .container-2 .s-1 .form-wrapper form .input-wrapper > label {
   font-weight: 600;
   font-size: 18px;
@@ -164,14 +169,17 @@ body .container-2 .s-1 .form-wrapper form .input-wrapper > p {
   font-weight: 300;
   font-size: small;
 }
-body .container-2 .s-1 .form-wrapper form .error > label {
+body .container-2 .s-1 .form-wrapper form .input-wrapper.error > label {
   color: #E52F2F;
 }
-body .container-2 .s-1 .form-wrapper form .error > input {
+body .container-2 .s-1 .form-wrapper form .input-wrapper.error > input {
   border: 1px solid #E52F2F;
 }
-body .container-2 .s-1 .form-wrapper form .error > p {
+body .container-2 .s-1 .form-wrapper form .input-wrapper.error > p {
   color: #E52F2F;
+}
+body .container-2 .s-1 .form-wrapper form .input-wrapper.error .content > h2 {
+  color: red;
 }
 body .container-2 .s-1 .form-wrapper form .teams-dropdown {
   z-index: 2;
@@ -209,6 +217,10 @@ body .container-2 .s-1 .form-wrapper form .teams-dropdown > input, body .contain
 body .container-2 .s-1 .form-wrapper form .teams-dropdown > input::placeholder, body .container-2 .s-1 .form-wrapper form .positions-dropdown > input::placeholder {
   color: black;
   font-size: 18px;
+}
+body .container-2 .s-1 .form-wrapper form .teams-dropdown > input::-webkit-outer-spin-button, body .container-2 .s-1 .form-wrapper form .teams-dropdown > input::-webkit-inner-spin-button, body .container-2 .s-1 .form-wrapper form .positions-dropdown > input::-webkit-outer-spin-button, body .container-2 .s-1 .form-wrapper form .positions-dropdown > input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 body .container-2 .s-1 .form-wrapper form .teams-dropdown > .option, body .container-2 .s-1 .form-wrapper form .teams-dropdown .positions-option, body .container-2 .s-1 .form-wrapper form .positions-dropdown > .option, body .container-2 .s-1 .form-wrapper form .positions-dropdown .positions-option {
   position: absolute;
@@ -252,6 +264,9 @@ body .container-2 .s-1 .form-wrapper form button {
 body .container-2 .s-1 .form-wrapper form button:hover {
   background-color: #317AD0;
 }
+body .container-2 .s-1 .form-wrapper form button:focus {
+  background-color: #1A5DAB;
+}
 body .container-2 .logo-wrapper {
   max-width: 1226px;
   margin: 40px auto;
@@ -292,17 +307,23 @@ body .container-2 .s-2 .form-wrapper form .drag-area {
   justify-content: center;
   align-items: center;
   margin-bottom: 50px;
+  cursor: pointer;
 }
-body .container-2 .s-2 .form-wrapper form .drag-area img {
+body .container-2 .s-2 .form-wrapper form .drag-area .input-wrapper img {
   height: 100%;
   width: 100%;
   object-fit: cover;
   border-radius: 8px;
 }
-body .container-2 .s-2 .form-wrapper form .drag-area .content {
+body .container-2 .s-2 .form-wrapper form .drag-area .input-wrapper .content {
   width: 200px;
 }
-body .container-2 .s-2 .form-wrapper form .drag-area .content h2 {
+body .container-2 .s-2 .form-wrapper form .drag-area .input-wrapper .content .error-image {
+  width: 40px;
+  margin: 5px 40%;
+  display: none;
+}
+body .container-2 .s-2 .form-wrapper form .drag-area .input-wrapper .content h2 {
   margin-bottom: 50px;
   color: #4386A9;
   font-weight: 700;
@@ -310,16 +331,20 @@ body .container-2 .s-2 .form-wrapper form .drag-area .content h2 {
   text-align: center;
   line-height: 38px;
 }
-body .container-2 .s-2 .form-wrapper form .drag-area .content button {
+body .container-2 .s-2 .form-wrapper form .drag-area .input-wrapper .content button {
   background-color: #62A1EB;
   color: white;
   padding: 15px 20px;
   border: none;
   width: 200px;
   border-radius: 8px;
+  cursor: pointer;
 }
-body .container-2 .s-2 .form-wrapper form .drag-area.active {
+body .container-2 .s-2 .form-wrapper form .drag-area .input-wrapper.active {
   border: 2px solid #8AC0E2;
+}
+body .container-2 .s-2 .form-wrapper form .drag-area .input-wrapper.error h2 {
+  color: #E52F2F;
 }
 body .container-2 .s-2 .form-wrapper form .input-box {
   display: flex;
@@ -344,6 +369,13 @@ body .container-2 .s-2 .form-wrapper form .input-box .input-wrapper > input {
   cursor: pointer;
   margin-right: 30px;
 }
+body .container-2 .s-2 .form-wrapper form .input-box .input-wrapper > input:focus {
+  background-color: rgba(43, 75, 242, 0.06);
+}
+body .container-2 .s-2 .form-wrapper form .input-box .input-wrapper > input::-webkit-outer-spin-button, body .container-2 .s-2 .form-wrapper form .input-box .input-wrapper > input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
 body .container-2 .s-2 .form-wrapper form .input-box .input-wrapper > label {
   font-weight: 600;
   font-size: 18px;
@@ -353,7 +385,33 @@ body .container-2 .s-2 .form-wrapper form .input-box .input-wrapper > p {
   font-weight: 300;
   font-size: small;
 }
-body .container-2 .s-2 .form-wrapper form .input-box .radio > h1, body .container-2 .s-2 .form-wrapper form .input-box .laptop-radio > h1 {
+body .container-2 .s-2 .form-wrapper form .input-box .input-wrapper img {
+  margin-left: 30px;
+}
+body .container-2 .s-2 .form-wrapper form .input-box .input-wrapper.error > label {
+  color: #E52F2F;
+}
+body .container-2 .s-2 .form-wrapper form .input-box .input-wrapper.error > input {
+  border: 1px solid #E52F2F;
+}
+body .container-2 .s-2 .form-wrapper form .input-box .input-wrapper.error > p {
+  color: #E52F2F;
+}
+body .container-2 .s-2 .form-wrapper form .input-box .input-wrapper.error .content > h2 {
+  color: red;
+}
+body .container-2 .s-2 .form-wrapper form .input-box .radio > div, body .container-2 .s-2 .form-wrapper form .input-box .laptop-radio > div {
+  display: flex;
+  align-items: flex-start;
+}
+body .container-2 .s-2 .form-wrapper form .input-box .radio > div > img, body .container-2 .s-2 .form-wrapper form .input-box .laptop-radio > div > img {
+  width: 20px;
+  height: 22px;
+  margin-left: 14px;
+  margin-top: -2px;
+  display: none;
+}
+body .container-2 .s-2 .form-wrapper form .input-box .radio > div > h1, body .container-2 .s-2 .form-wrapper form .input-box .laptop-radio > div > h1 {
   margin-bottom: 20px;
   font-size: 18px;
   font-weight: 700;
@@ -362,13 +420,6 @@ body .container-2 .s-2 .form-wrapper form .input-box .radio > label, body .conta
   font-weight: 400;
   margin-right: 100px;
   cursor: pointer;
-}
-body .container-2 .s-2 .form-wrapper form .input-box .radio > label > div, body .container-2 .s-2 .form-wrapper form .input-box .laptop-radio > label > div {
-  width: 15px;
-  height: 15px;
-  border-radius: 50%;
-  background-color: #8AC0E2;
-  margin-top: 20px;
 }
 body .container-2 .s-2 .form-wrapper form .input-box .radio > label > input, body .container-2 .s-2 .form-wrapper form .input-box .laptop-radio > label > input {
   appearance: none;
@@ -383,12 +434,17 @@ body .container-2 .s-2 .form-wrapper form .input-box .radio > label > input, bod
   cursor: pointer;
 }
 body .container-2 .s-2 .form-wrapper form .input-box .radio > label > input:checked, body .container-2 .s-2 .form-wrapper form .input-box .laptop-radio > label > input:checked {
-  border: 5px solid #4D9AC3;
+  appearance: auto;
+}
+body .container-2 .s-2 .form-wrapper form .input-box .error div > h1 {
+  color: #E52F2F;
+}
+body .container-2 .s-2 .form-wrapper form .input-box .error div > img {
+  display: block;
 }
 body .container-2 .s-2 .form-wrapper form .input-box .laptop-brand-dropdown, body .container-2 .s-2 .form-wrapper form .input-box .cpu-dropdown {
-  width: 100%;
   position: relative;
-  margin-top: 25px;
+  margin-top: 15px;
 }
 body .container-2 .s-2 .form-wrapper form .input-box .laptop-brand-dropdown > input, body .container-2 .s-2 .form-wrapper form .input-box .cpu-dropdown > input {
   width: 100%;
@@ -402,17 +458,41 @@ body .container-2 .s-2 .form-wrapper form .input-box .laptop-brand-dropdown > in
 }
 body .container-2 .s-2 .form-wrapper form .input-box .laptop-brand-dropdown > input::placeholder, body .container-2 .s-2 .form-wrapper form .input-box .cpu-dropdown > input::placeholder {
   color: black;
-  font-size: 18px;
+  font-size: 20px;
 }
 body .container-2 .s-2 .form-wrapper form .input-box .laptop-brand-dropdown > img, body .container-2 .s-2 .form-wrapper form .input-box .cpu-dropdown > img {
   position: absolute;
   z-index: 99;
-  top: 20px;
+  top: 30px;
   right: 20px;
+}
+body .container-2 .s-2 .form-wrapper form .input-box .laptop-brand-dropdown > .brand-option, body .container-2 .s-2 .form-wrapper form .input-box .laptop-brand-dropdown > .cpu-option, body .container-2 .s-2 .form-wrapper form .input-box .cpu-dropdown > .brand-option, body .container-2 .s-2 .form-wrapper form .input-box .cpu-dropdown > .cpu-option {
+  position: absolute;
+  width: 100%;
+  top: 60px;
+  background-color: white;
+  box-shadow: 0px 4px 20px 8px rgba(0, 0, 0, 0.19);
+  border-radius: 5px;
+  overflow: hidden;
+  display: none;
+  z-index: 1;
+}
+body .container-2 .s-2 .form-wrapper form .input-box .laptop-brand-dropdown > .brand-option > div, body .container-2 .s-2 .form-wrapper form .input-box .laptop-brand-dropdown > .cpu-option > div, body .container-2 .s-2 .form-wrapper form .input-box .cpu-dropdown > .brand-option > div, body .container-2 .s-2 .form-wrapper form .input-box .cpu-dropdown > .cpu-option > div {
+  padding: 10px 10px;
+  cursor: pointer;
+}
+body .container-2 .s-2 .form-wrapper form .input-box .laptop-brand-dropdown > .brand-option > div:hover, body .container-2 .s-2 .form-wrapper form .input-box .laptop-brand-dropdown > .cpu-option > div:hover, body .container-2 .s-2 .form-wrapper form .input-box .cpu-dropdown > .brand-option > div:hover, body .container-2 .s-2 .form-wrapper form .input-box .cpu-dropdown > .cpu-option > div:hover {
+  background-color: #E7F0F8;
+}
+body .container-2 .s-2 .form-wrapper form .input-box .laptop-brand-dropdown.active .brand-option, body .container-2 .s-2 .form-wrapper form .input-box .laptop-brand-dropdown.active .cpu-option, body .container-2 .s-2 .form-wrapper form .input-box .laptop-brand-dropdown.active .brand-option, body .container-2 .s-2 .form-wrapper form .input-box .laptop-brand-dropdown.active .cpu-option, body .container-2 .s-2 .form-wrapper form .input-box .cpu-dropdown.active .brand-option, body .container-2 .s-2 .form-wrapper form .input-box .cpu-dropdown.active .cpu-option, body .container-2 .s-2 .form-wrapper form .input-box .cpu-dropdown.active .brand-option, body .container-2 .s-2 .form-wrapper form .input-box .cpu-dropdown.active .cpu-option {
+  display: block;
+}
+body .container-2 .s-2 .form-wrapper form .input-box .laptop-brand-dropdown.error input, body .container-2 .s-2 .form-wrapper form .input-box .cpu-dropdown.error input {
+  border: 1px solid #E52F2F;
 }
 body .container-2 .s-2 .form-wrapper form .input-box .cpu-dropdown {
   margin-right: 50px;
-  margin-top: 28px;
+  margin-top: 15px;
 }
 body .container-2 .s-2 .form-wrapper form hr {
   width: 100%;
@@ -439,8 +519,14 @@ body .container-2 .s-2 .form-wrapper form .button-box a:nth-child(2) button {
   background-color: #62A1EB;
   border: none;
   padding: 15px 20px;
-  border-radius: 18px;
+  border-radius: 8px;
   color: white;
   font-size: 18px;
   cursor: pointer;
+}
+body .container-2 .s-2 .form-wrapper form .button-box a:nth-child(2) button:hover {
+  background-color: #317AD0;
+}
+body .container-2 .s-2 .form-wrapper form .button-box a:nth-child(2) button:focus {
+  background-color: #1A5DAB;
 }/*# sourceMappingURL=global.css.map */

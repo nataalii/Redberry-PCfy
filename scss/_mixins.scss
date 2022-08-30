@@ -1,0 +1,34 @@
+@mixin error {
+    .input-wrapper.error {
+        & > label{
+            color: $error-color;
+        }
+
+        & > input{
+            border: 1px solid $error-color;
+        }
+        
+        & > p {
+            color: $error-color;
+        }
+
+        .content > h2{
+            color: red;
+        }
+
+    }
+}
+
+
+@mixin radioError {
+    .error{
+        div > h1{
+            color: $error-color;
+        }
+    
+        div > img{
+            display: block;
+        }
+    }
+
+}

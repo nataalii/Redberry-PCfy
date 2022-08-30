@@ -24,7 +24,7 @@ fetch('https://pcfy.redberryinternship.ge/api/teams').then(res => {
 
 function show(value) {
     document.querySelector('.positionTextBox').value = '';
-    document.querySelector('.textBox').value = value
+    document.querySelector('.textBox').value = value;
 
     arr.forEach(item => {
         if(item.name === value){
