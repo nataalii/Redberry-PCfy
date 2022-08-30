@@ -9,7 +9,7 @@ customBtn.onclick = () =>{
     input.click()
 }
 input.addEventListener("change", function(event){
-    file = event.dataTransfer.files[0]
+    file = event.target.files[0]
     showFile();
     dropArea.classList.add('active')
 
@@ -81,8 +81,7 @@ fetch('https://pcfy.redberryinternship.ge/api/cpus').then(res => {
 }).then(finalData => {
     let output = ''
     finalData.data.forEach(cpu => {
-        output += `<div onclick = showCpu('${cpu.name}')>${cpu.name}</div>`
-        // output += `<div>${cpu.name}</div>`
+        output += `<div onclick="showCpu('${cpu.name}')">${cpu.name}</div>`
     })
     cpusDrop.innerHTML = output
 }).catch(err => {
@@ -114,7 +113,7 @@ const form = document.querySelector('#form')
 const dragAreaContent = document.querySelector('.content')
 const laptopName = document.getElementById('laptop-name')
 const laptopBrand = document.getElementById('laptop-brand')
-const cpu = document.getElementById('cpu')
+const cpu = document.getElementById('laptop-cpu')
 const cpuCores = document.getElementById('cpu-cores')
 const cpuThreads = document.getElementById('cpu-threads')
 const ram = document.getElementById('ram')
@@ -123,13 +122,18 @@ const price = document.getElementById('price')
 const newLaptop = document.getElementById('new')
 const usedLaptop = document.getElementById('used')
 const smallErrorImage = document.querySelector('.error-image-sm')
+const modal = document.getElementById("myModal");
+
 let regex = /^[a-z0-9!@#$%^&*()_+=]+$/i
 
 form.addEventListener('submit', (e) =>{
     e.preventDefault()
     validateInputs();
     if(isFormValid()== true){
-        form.submit();
+        // When the user submit the form, open the modal 
+        modal.style.display = "block";
+
+        // form.submit();
     } else {
         e.preventDefault();
 
@@ -153,7 +157,7 @@ const dragArea = document.querySelector('.drag-area');
 const validateInputs = () => {
     const laptopNameValue = laptopName.value.trim();
     const laptopBrandValue = laptopBrand.value;
-        // const cpuValue = cpu.value
+    const cpuValue = cpu.value
     const cpuCoresValue = cpuCores.value.trim();
     const cpuThreadsValue = cpuThreads.value.trim();
     const ramValue = ram.value.trim();
@@ -175,12 +179,12 @@ const validateInputs = () => {
         setSuccess(laptopBrand)
     }
 
-    // // cpu validation
-    // if(cpuValue === ''){
-    //     setError(cpu, '')
-    // } else {
-    //     setSuccess(cpu)
-    // }
+    // cpu validation
+    if(cpuValue === ''){
+        setError(cpu, '')
+    } else {
+        setSuccess(cpu)
+    }
 
     // cpu cores validation
     if(cpuCoresValue === ''){
@@ -269,3 +273,4 @@ const setSuccess = element => {
 
     inputControl.classList.remove('error')
 }
+
