@@ -1,3 +1,4 @@
+const laptopInfo = document.querySelector('.laptop-info');
 const form = document.querySelector('#form');
 const firstName = document.getElementById('name');
 const lastName = document.getElementById('lastname');
@@ -9,6 +10,11 @@ const position = document.getElementById('position');
 const geoAlph = /^[ა-ჰ]+$/;
 const engAlph = /^[a-zA-Z0-9@.]+$/;
 const phoneNum = /^(\+?995)?(79\d{7}|5\d{8})$/
+
+
+// laptopInfo.addEventListener('click', () => {
+//     location.href = "laptop-info.html"
+// })
 
 // if the user refreshes a page, info will be saved
 // grab inputs from local storage

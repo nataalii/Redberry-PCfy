@@ -1,4 +1,4 @@
-@mixin error {
+%error {
     .input-wrapper.error {
         & > label{
             color: $error-color;
@@ -20,7 +20,7 @@
 }
 
 
-@mixin radioError {
+%radioError {
     .error{
         div > h1{
             color: $error-color;

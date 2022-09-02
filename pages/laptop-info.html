@@ -13,8 +13,8 @@
             <button id="back-btn"><img src="../images/back-arrow.svg" alt="arrow"></button>
         </a>
         <div class="titles">
-            <h3>თანამშრომლის ინფო <hr style="display: none;"></h3>
-            <h3>ლეპტოპის მახასიათებლები <hr></h3>
+            <h3 class="staff-info">თანამშრომლის ინფო <hr style="display: none;"></h3>
+            <h3 class="laptop-info">ლეპტოპის მახასიათებლები <hr></h3>
         </div>
     
         <section class="s-2">
@@ -26,10 +26,18 @@
                                     <img src="../images/error-image.svg" alt="error" class="error-image">
                                     <h2 class="error-message">ჩააგდე ან ატვირთე ლეპტოპის ფოტო</h2>
                                     <input type="file" id="default-btn" hidden>
-                                    <button onclick="defaultBtnActive()" id="custom-btn" type="button">ატვირთე</button>
+                                    <button id="custom-btn" type="button">ატვირთე</button>
                                 </div>
                             </div>
+                       </div>
 
+                       <div class="image-info">
+                            <div>
+                                <img src="../images/checked.svg" alt="checked">
+                                <p class="image-name"></p>
+                                <p class="image-size"></p>
+                            </div>
+                            <button id="upload-again-btn" type="button">თავიდან ატვირთე</button>
                        </div>
 
                        <div class="input-box">

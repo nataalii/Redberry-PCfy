@@ -1,4 +1,5 @@
 //declaring variables
+const staffInfo = document.querySelector('.staff-info')
 const form = document.querySelector('#form')
 const dragAreaContent = document.querySelector('.content')
 const laptopName = document.getElementById('laptop-name')
@@ -21,40 +22,49 @@ const storageRadioLabel = document.querySelectorAll('.storage-radio-label')
 const stateRadioLabel = document.querySelectorAll('.state-radio-label')
 let regex = /^[a-z0-9!@#$%^&*()_+=]+$/i
 
+staffInfo.addEventListener('click', () => {
+    location.href = "staff-info.html"
+})
+
+
 // laptop image upload
-const dropArea = document.querySelector('.drag-area')
+const dropArea = document.querySelector('.drag-area');
 const input = dropArea.querySelector('input');
 const customBtn = dropArea.querySelector('#custom-btn');
+const uploadAgainBtn = document.querySelector('#upload-again-btn');
+const imageInfo = document.querySelector('.image-info');
+const imageName = document.querySelector('.image-name');
+const imageSize = document.querySelector('.image-size');
 let file;
-
 customBtn.onclick = () =>{
-    input.click()
+    input.click();
+}
+uploadAgainBtn.onclick = () => {
+    input.click();
 }
 
 input.addEventListener("change", function(event){
     file = event.target.files[0]
     showFile();
     dropArea.classList.add('active');
-    console.log(file)
-
 })
 
 // when user drags file over DropArea
 dropArea.addEventListener('dragover', (event) => {
-    event.preventDefault()
-    dropArea.classList.add('active')
+    event.preventDefault();
+    dropArea.classList.add('active');
 })
 
 // when user leaves dragged File from DropArea
 dropArea.addEventListener('dragleave', ()=> {
-    dropArea.classList.remove('active')
+    dropArea.classList.remove('active');
 })
 
 // when user drops File on DropArea
 dropArea.addEventListener('drop', (event)=> {
-    event.preventDefault()
-    file = event.dataTransfer.files[0]
-    showFile()
+    event.preventDefault();
+    file = event.dataTransfer.files[0];
+    showFile();
 
 })
 
@@ -67,11 +77,15 @@ function showFile(){
         fileReader.onload = () => {
             let fileURL = fileReader.result;
             let imageTag = `<img src="${fileURL}" alt="image">`
-            dropArea.innerHTML = imageTag
+            dropArea.innerHTML = imageTag;
+            dragArea.style.backgroundColor = "#F6F6F6";
+            dragArea.style.border = "2px dashed #8AC0E2";
+            imageName.innerHTML = file.name + '.';
+            imageSize.innerHTML = bytesToSize(file.size);
+            imageInfo.style.display = 'flex';
         } 
         fileReader.readAsDataURL(file)
-        dragArea.style.backgroundColor = "#F6F6F6";
-        dragArea.style.border = "2px dashed #8AC0E2";
+
 
     } else {
         alert('ატვირთეთ მხოლოდ ფოტო!')
@@ -79,6 +93,11 @@ function showFile(){
     }
 }
 
+function bytesToSize(bytes) {
+    const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB']
+    const i = parseInt(Math.floor(Math.log(bytes) / Math.log(1024)), 10)
+    return `${(bytes / (1024 ** i)).toFixed(1)} ${sizes[i]}`
+}
 
 // fetch laptop brands api
 const brandsDrop = document.querySelector('.brand-option')
@@ -253,8 +272,8 @@ form.addEventListener('submit', (e) =>{
                 laptop_price: localStorage.laptop_price
             }), 
             headers: {
-                accept: "application/json", 
-                "Content-Type": "application/json",
+                accept: "application/json; multipart/form-data", 
+                "Content-Type": "application/json; multipart/form-data",
               },
         }).then(function(response){
             return response.text();
@@ -265,9 +284,9 @@ form.addEventListener('submit', (e) =>{
         })
         
         // When the user submit the form, open the modal 
-        modal.style.display = "block";
+        // modal.style.display = "block";
         
-        form.submit();
+        // form.submit();
     } else {
         e.preventDefault();
 
