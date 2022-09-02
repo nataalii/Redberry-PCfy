@@ -1,17 +1,41 @@
+//declaring variables
+const form = document.querySelector('#form')
+const dragAreaContent = document.querySelector('.content')
+const laptopName = document.getElementById('laptop-name')
+const laptopBrand = document.getElementById('laptop-brand')
+const cpu = document.getElementById('laptop-cpu')
+const cpuCores = document.getElementById('cpu-cores')
+const cpuThreads = document.getElementById('cpu-threads')
+const ram = document.getElementById('ram')
+const date = document.getElementById('date')
+const price = document.getElementById('price')
+const newLaptop = document.getElementById('new')
+const usedLaptop = document.getElementById('used')
+const smallErrorImage = document.querySelector('.error-image-sm')
+const modal = document.getElementById("myModal");
+const laptopStatus = document.querySelector('.laptop-radio') 
+const storageRadio = document.querySelector('.radio')
+const storageRadioBtn = document.querySelectorAll('.storage-radio')
+const laptopStatusBtn = document.querySelectorAll('.radio-btn')
+const storageRadioLabel = document.querySelectorAll('.storage-radio-label')
+const stateRadioLabel = document.querySelectorAll('.state-radio-label')
+let regex = /^[a-z0-9!@#$%^&*()_+=]+$/i
+
 // laptop image upload
 const dropArea = document.querySelector('.drag-area')
 const input = dropArea.querySelector('input');
 const customBtn = dropArea.querySelector('#custom-btn');
 let file;
 
-
 customBtn.onclick = () =>{
     input.click()
 }
+
 input.addEventListener("change", function(event){
     file = event.target.files[0]
     showFile();
-    dropArea.classList.add('active')
+    dropArea.classList.add('active');
+    console.log(file)
 
 })
 
@@ -31,9 +55,9 @@ dropArea.addEventListener('drop', (event)=> {
     event.preventDefault()
     file = event.dataTransfer.files[0]
     showFile()
+
 })
 
-console.log(dropArea)
 function showFile(){
     let filetype = file.type;
 
@@ -46,6 +70,8 @@ function showFile(){
             dropArea.innerHTML = imageTag
         } 
         fileReader.readAsDataURL(file)
+        dragArea.style.backgroundColor = "#F6F6F6";
+        dragArea.style.border = "2px dashed #8AC0E2";
 
     } else {
         alert('ატვირთეთ მხოლოდ ფოტო!')
@@ -63,15 +89,24 @@ fetch('https://pcfy.redberryinternship.ge/api/brands').then(res => {
 }).then(finalData => {
     let output = ''
     finalData.data.forEach(brand => {
-        output += `<div onclick = show('${brand.name}')>${brand.name}</div>`
+        output += `<div onclick = show('${brand.name}') id="${brand.id}" class='brand-name'>${brand.name}</div>`
     })
     brandsDrop.innerHTML = output
+    const brandName = document.querySelectorAll('.brand-name')
+    brandName.forEach(brand => {
+        brand.addEventListener('click', () => {
+            localStorage.setItem("laptop_brand_id", brand.id)
+        })
+    })
+
 }).catch(err => {
     console.log(err)
 })
 
 function show(value) {
     document.querySelector('.brandTextBox').value = value;
+    localStorage.setItem("laptop_brand", laptopBrand.value);
+
 }
 
 
@@ -90,6 +125,7 @@ fetch('https://pcfy.redberryinternship.ge/api/cpus').then(res => {
 
 function showCpu(value) {
     document.getElementById('laptop-cpu').value = value;
+    localStorage.setItem('laptop_cpu', cpu.value )
 }
 
 
@@ -107,43 +143,105 @@ cpusDropdown.onclick = function() {
 }
 
 
+// grab inputs from local storage
+laptopName.addEventListener("keyup", event => {
+    localStorage.setItem("laptop_name", event.target.value);
+});  
+
+cpuCores.addEventListener("keyup", event => {
+    localStorage.setItem('laptop_cpu_cores', event.target.value)
+})
+
+cpuThreads.addEventListener("keyup", event => {
+    localStorage.setItem('laptop_cpu_threads', event.target.value)
+})
+
+ram.addEventListener("keyup", event => {
+    localStorage.setItem('laptop_ram', event.target.value)
+})
+
+price.addEventListener("keyup", event => {
+    localStorage.setItem('laptop_price', event.target.value)
+})
+
+storageRadioLabel.forEach(option => {
+    option.addEventListener("click", () => {
+        localStorage.setItem("laptop_hard_drive_type", option.querySelector("input").id)
+    })
+})
+
+stateRadioLabel.forEach(option => {
+    option.addEventListener('click', () => {
+        localStorage.setItem('laptop_state', option.querySelector("input").id)
+    } )
+})
+
+// set inputs to local storage
+// stay the same value after refresh
+if (localStorage.laptop_name) {
+    laptopName.value = localStorage.laptop_name;
+}
+if(localStorage.laptop_brand){
+    laptopBrand.value = localStorage.laptop_brand
+}
+
+if(localStorage.laptop_cpu){
+    cpu.value = localStorage.laptop_cpu
+}
+
+if(localStorage.laptop_cpu_cores){
+    cpuCores.value = localStorage.laptop_cpu_cores
+}
+
+if(localStorage.laptop_cpu_threads){
+    cpuThreads.value = localStorage.laptop_cpu_threads
+}
+if(localStorage.laptop_ram){
+    ram.value = localStorage.laptop_ram
+}
+if(localStorage.laptop_purchase_date){
+    date.value = localStorage.laptop_purchase_date
+}
+if(localStorage.laptop_price){
+    price.value = localStorage.laptop_price
+}
+
+if(localStorage.laptop_state){
+    const id = localStorage.laptop_state
+    const option = document.getElementById(id).parentElement
+    option.querySelector("input").checked = true;
+}
+
+if(localStorage.laptop_hard_drive_type){
+    const id = localStorage.laptop_hard_drive_type;
+    const option = document.getElementById(id).parentElement
+    option.querySelector("input").checked = true;
+}
+
+        
 // laptop info form validation
-//declaring variables
-const form = document.querySelector('#form')
-const dragAreaContent = document.querySelector('.content')
-const laptopName = document.getElementById('laptop-name')
-const laptopBrand = document.getElementById('laptop-brand')
-const cpu = document.getElementById('laptop-cpu')
-const cpuCores = document.getElementById('cpu-cores')
-const cpuThreads = document.getElementById('cpu-threads')
-const ram = document.getElementById('ram')
-const date = document.getElementById('date')
-const price = document.getElementById('price')
-const newLaptop = document.getElementById('new')
-const usedLaptop = document.getElementById('used')
-const smallErrorImage = document.querySelector('.error-image-sm')
-const modal = document.getElementById("myModal");
-
-let regex = /^[a-z0-9!@#$%^&*()_+=]+$/i
-
 form.addEventListener('submit', (e) =>{
-    e.preventDefault()
     validateInputs();
-    if(isFormValid()== true){
+
+    if(isFormValid()){
+       
+        
         // When the user submit the form, open the modal 
         modal.style.display = "block";
-
-        // form.submit();
+        
+        form.submit();
     } else {
         e.preventDefault();
 
     }
 
+
+
 })
 
 function isFormValid(){
     const inputContainers = form.querySelectorAll('.input-wrapper');
-    let result = true
+    let result = true;
     inputContainers.forEach((container) => {
         if(container.classList.contains('error')){
             result = false;
@@ -169,78 +267,61 @@ const validateInputs = () => {
     } else if(!regex.test(laptopNameValue)){
         setError(laptopName, 'შეიყვანეთ მხოლოდ ლათინური ასოები, ციფრები, !@#$%^&*()_+=')
     } else {
-        setSuccess(laptopName)
+        setSuccess(laptopName, 'ლათინური ასოები, ციფრები, !@#$%^&*()_+=')
     }
 
     // brand validation
     if(laptopBrandValue === ''){
         setError(laptopBrand, '')
     } else {
-        setSuccess(laptopBrand)
+        setSuccess(laptopBrand, '')
     }
 
     // cpu validation
     if(cpuValue === ''){
         setError(cpu, '')
     } else {
-        setSuccess(cpu)
+        setSuccess(cpu, '')
     }
 
     // cpu cores validation
     if(cpuCoresValue === ''){
         setError(cpuCores, 'ამ ველის შევსება სავალდებულოა!');
     } else {
-        setSuccess(cpuCores);
+        setSuccess(cpuCores, 'მხოლოდ ციფრები');
     }
 
     //cpu threads validation
     if(cpuThreadsValue === ''){
         setError(cpuThreads, 'ამ ველის შევსება სავალდებულოა!');
     } else {
-        setSuccess(cpuThreads);
+        setSuccess(cpuThreads, 'მხოლოდ ციფრები');
     }
 
     // ram validation
     if(ramValue === ''){
         setError(ram, 'ამ ველის შევსება სავალდებულოა!');
     } else {
-        setSuccess(ram);
+        setSuccess(ram, 'მხოლოდ ციფრები');
     }
     
     // storage type validation
-    const storageRadio = document.querySelector('.radio')
-    var validbtn = false;
-    var storageRadioBtn = document.querySelectorAll('.storage-radio')
-    storageRadioBtn.forEach(radio => {
-        if(radio.checked){
-            validbtn = true;
-        }
-    }) 
-    if(validbtn){
-        setSuccess(storageRadio)
+    if(checkRadios(storageRadioBtn)){
+        setSuccess(storageRadio, 'მეხსიერების ტიპი');
     } else {
         setError(storageRadio, 'მეხსიერების ტიპი')
-    }  
-
+    } 
 
     // laptop price validation
     if(priceValue === ''){
         setError(price, 'ამ ველის შევსება სავალდებულოა!');
     } else {
-        setSuccess(price);
+        setSuccess(price, 'მხოლოდ ციფრები');
     }
 
     // laptop status validation
-    const laptopStatus = document.querySelector('.laptop-radio') 
-    var valid = false;
-    var laptopStatusBtn = document.querySelectorAll('.radio-btn')
-    laptopStatusBtn.forEach(radio => {
-        if(radio.checked){
-            valid = true;
-        }
-    }) 
-    if(valid){
-        setSuccess(laptopStatus)
+    if(checkRadios(laptopStatusBtn)){
+        setSuccess(laptopStatus, 'ლეპტოპის მდგომარეობა');
     } else {
         setError(laptopStatus, 'ლეპტოპის მდგომარეობა')
     } 
@@ -253,11 +334,23 @@ const validateInputs = () => {
         
         setError(dragAreaContent, 'ჩააგდე ან ატვირთე ლეპტოპის ფოტო');
     } else{
-        setSuccess(dragAreaContent)
+        setSuccess(dragAreaContent, '')
     }
-
+    
+    localStorage.setItem('laptop_purchase_date', date.value)
 
 }
+
+function checkRadios(radios) {
+    checked = false;
+    radios.forEach(radio => {
+        if(radio.checked){
+            checked = true
+        }   
+    })
+    return checked
+}
+
 const setError = (element, message) => {
      const inputControl = element.parentElement;
      const errorDisplay = inputControl.querySelector('.error-message')
@@ -266,10 +359,10 @@ const setError = (element, message) => {
      inputControl.classList.add('error');
 }
 
-const setSuccess = element => {
+const setSuccess = (element, message) => {
     const inputControl = element.parentElement;
     const errorDisplay = inputControl.querySelector('.error-message')
-    errorDisplay.innerText = ''
+    errorDisplay.innerText = message
 
     inputControl.classList.remove('error')
 }

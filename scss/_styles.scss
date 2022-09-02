@@ -151,7 +151,7 @@ body{
                         margin-bottom: 60px;
                         margin-top: 20px;
                         max-width: 80%;
-                        left: 10%;
+                        // left: 10%;
                         & > img {
                             position: absolute;
                             z-index: 4;
@@ -289,7 +289,7 @@ body{
                         height: 450px;
                         border: 2px dashed #8AC0E2;
                         border-radius: 18px;
-                        padding: 20px;
+                        padding: 10px;
                         background-color: #F6F6F6;
                         display: flex;
                         justify-content: center;
@@ -344,6 +344,7 @@ body{
                                 }
                             }
                         }
+
                     }
 
                     .input-box{

@@ -1,3 +1,56 @@
+const form = document.querySelector('#form');
+const firstName = document.getElementById('name');
+const lastName = document.getElementById('lastname');
+const email = document.getElementById('email');
+const phone = document.getElementById('telephone');
+const btn = document.getElementById('next-btn');
+const team = document.getElementById('team');
+const position = document.getElementById('position');
+const geoAlph = /^[ა-ჰ]+$/;
+const engAlph = /^[a-zA-Z0-9@.]+$/;
+const phoneNum = /^(\+?995)?(79\d{7}|5\d{8})$/
+
+// if the user refreshes a page, info will be saved
+// grab inputs from local storage
+firstName.addEventListener("keyup", event => {
+    localStorage.setItem("name", event.target.value);
+});  
+
+lastName.addEventListener("keyup", event => {
+    localStorage.setItem("surname", event.target.value);
+});  
+phone.addEventListener("keyup", event => {
+    localStorage.setItem('phone_number', event.target.value)
+})
+
+email.addEventListener("keyup", event => {
+    localStorage.setItem('email', event.target.value)
+})
+
+
+// set inputs to local torage
+if (localStorage.name) {
+    firstName.value = localStorage.name;
+}
+
+if(localStorage.surname){
+    lastName.value = localStorage.surname;
+}
+if(localStorage.phone_number){
+    phone.value = localStorage.phone_number
+}
+
+if(localStorage.email){
+    email.value = localStorage.email
+}
+if(localStorage.team){
+    team.value = localStorage.team
+}
+
+if(localStorage.position){
+    position.value = localStorage.position
+}
+
 //teams api
 const selectDrop = document.querySelector('.option');
 const selectPos = document.querySelector('.positions-option')
@@ -7,24 +60,30 @@ fetch('https://pcfy.redberryinternship.ge/api/teams').then(res => {
 }).then(finalData => {
     let output = '';
     finalData.data.forEach(team => {
-        output += `<div onclick="show('${team.name}')">${team.name}</div>`
-        const obj = {
+    output += `<div onclick="show('${team.name}')" class="team-drop" id="${team.id}">${team.name}</div>`
+    const obj = {
             id: team.id,
             name: team.name
         }
         arr.push(obj)
     })
     selectDrop.innerHTML = output
+    const teamDrop = document.querySelectorAll('.team-drop')
+    teamDrop.forEach(team => {
+        team.addEventListener('click', () => {
+            localStorage.setItem('team_id', team.id)
+        })
+    })
 }).catch(err => {
     console.log(err)
 })
 
 
 // teams and positions dropdown list
-
 function show(value) {
-    document.querySelector('.positionTextBox').value = '';
-    document.querySelector('.textBox').value = value;
+    position.value = '';
+    team.value = value;
+    localStorage.setItem('team', value)
 
     arr.forEach(item => {
         if(item.name === value){
@@ -34,9 +93,15 @@ function show(value) {
                 let output = ''
                 const filterdArray = finalData.data.filter(position => position.team_id === item.id)
                 filterdArray.forEach(position => {
-                    output += `<div onclick="showPositions('${position.name}')">${position.name}</div>`
+                    output += `<div onclick="showPositions('${position.name}')" id=${position.id} class="position-drop">${position.name}</div>`
                 })
                 selectPos.innerHTML = output
+                const positionDrop = document.querySelectorAll('.position-drop')
+                positionDrop.forEach(position => {
+                    position.addEventListener('click', () => {
+                        localStorage.setItem('position_id', position.id)
+                    })
+                })
                 
             }).catch(err => {
                 console.log(err)
@@ -50,8 +115,8 @@ function show(value) {
 
 function showPositions(value) {
     document.querySelector('.positionTextBox').value = value;
+    localStorage.setItem('position', position.value)
 }
-
 
 
 
@@ -68,29 +133,18 @@ positionsDropdown.onclick = function() {
 
 
 // staff info form validation
-const form = document.querySelector('#form')
-const firstName = document.getElementById('name')
-const lastName = document.getElementById('lastname')
-const email = document.getElementById('email')
-const phone = document.getElementById('telephone')
-const btn = document.getElementById('next-btn')
-const team = document.getElementById('team')
-const position = document.getElementById('position')
-const geoAlph = /^[ა-ჰ]+$/;
-const engAlph = /^[a-zA-Z0-9@.]+$/;
-const phoneNum = /^(\+?995)?(79\d{7}|5\d{8})$/
-
-
-form.addEventListener('submit', (e) =>{
+// Submitting the form
+btn.addEventListener('click', (e) =>{
     validateInputs();
-
-    if(isFormValid()== true){
-        form.submit();
+    if(isFormValid() == true){
+        // localStorage.setItem("name", firstName.value);
+        // localStorage.setItem("surname", lastName.value);
+        // localStorage.setItem("phone_number", phone.value);
+        // localStorage.setItem("email", email.value);
+        location.href = "laptop-info.html"
     } else {
         e.preventDefault();
-
     }
-
 })
 
 function isFormValid(){
@@ -119,7 +173,7 @@ const validateInputs = () => {
     } else if(!geoAlph.test(firstNameValue)){
         setError(firstName, 'სახელი უნდა შეიცავდეს ქართულ ასოებს')
     } else {
-        setSuccess(firstName)
+        setSuccess(firstName, 'მინიმუმ 2 სიმბოლო, ქართული ასოები')
     }
 
     // lastname validation
@@ -128,21 +182,21 @@ const validateInputs = () => {
     } else if(!geoAlph.test(lastNameValue)){
         setError(lastName, 'სახელი უნდა შეიცავდეს ქართულ ასოებს')
     } else {
-        setSuccess(lastName)
+        setSuccess(lastName, 'მინიმუმ 2 სიმბოლო, ქართული ასოები')
     }
 
     // team validation
     if(teamValue === ''){
         setError(team, '')
     } else {
-        setSuccess(team)
+        setSuccess(team, '')
     }
 
     // position validation
     if(positionValue === ''){
         setError(position, '')
     } else {
-        setSuccess(position)
+        setSuccess(position, '')
     }
 
     // email validation
@@ -154,14 +208,14 @@ const validateInputs = () => {
     } else if(!emailValue.endsWith("@redberry.ge")) {
         setError(email, 'მეილი უნდა მთავრდებოდეს @redberry.ge-ით');
     } else {
-        setSuccess(email);
+        setSuccess(email, 'უნდა მთავრდებოდეს @redberry.ge-ით');
     }
 
     // telephone number validation
     if(!phoneNum.test(phoneValue)){
         setError(phone, 'უნდა აკმაყოფილებდეს ქართული მობ-ნომრის ფორმატს');
     } else {
-        setSuccess(phone);
+        setSuccess(phone, 'უნდა აკმაყოფილებდეს ქართული მობ-ნომრის ფორმატს');
     }
 
     
@@ -173,14 +227,12 @@ const setError = (element, message) => {
 
      errorDisplay.innerText = message
      inputControl.classList.add('error');
-    //  inputControl.classList.remove('success')
 }
 
-const setSuccess = element => {
+const setSuccess = (element, message) => {
     const inputControl = element.parentElement;
     const errorDisplay = inputControl.querySelector('.error-message')
-    errorDisplay.innerText = ''
-    // inputControl.classList.add('success');
+    errorDisplay.innerText = message
     inputControl.classList.remove('error')
 }
 

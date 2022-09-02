@@ -20,7 +20,7 @@
     
         <section class="s-1">
             <div class="form-wrapper">
-                <form action="./laptop-info.html" id="form" method="get">
+                <form id="form">
                     <div class="input-flex">
                         <div class="input-wrapper">
                             <label for="name" id="name-label">სახელი</label> <br>
@@ -34,14 +34,14 @@
                         </div>
                     </div>
 
-                    <div class="teams-dropdown">
+                    <div class="teams-dropdown input-wrapper">
                         <img src="../images/dropdown-arrow.svg" alt="dropdown arrow">
                         <input type="text" class="textBox" id="team" placeholder="თიმი" name="team" readonly>
                         <p class="error-message"></p>
                         <div class="option"></div>
                     </div>
 
-                    <div class="positions-dropdown">
+                    <div class="positions-dropdown input-wrapper">
                         <img src="../images/dropdown-arrow.svg" alt="dropdown arrow">
                         <input type="text" class="positionTextBox" id="position" placeholder="პოზიცია" name="position" readonly>
                         <p class="error-message"></p>
@@ -59,7 +59,7 @@
                         <input type="tel" name="telephone" id="telephone" placeholder="+995 598 00 07 01">
                         <p class="error-message">უნდა აკმაყოფილებდეს ქართული მობ-ნომრის ფორმატს</p>
                     </div>
-                        <button type="submit" id="next-btn">შემდეგი</button>                        
+                        <button type="button" id="next-btn">შემდეგი</button>                        
                 </form>
             </div>
         </section>
