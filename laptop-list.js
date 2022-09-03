@@ -1,7 +1,8 @@
 const laptopListBtn = document.querySelector('.laptop-list-btn')
 const cardTemplate = document.querySelector('.card-template')
 const container = document.querySelector('.container-3')
-
+let laptopId;
+let arr = [];
 fetch("https://pcfy.redberryinternship.ge/api/laptops?token=483f0e2b69ba369ee963e7399dd26ff6").then(res => {
     return res.json()
 }).then(finalData => {
@@ -11,18 +12,23 @@ fetch("https://pcfy.redberryinternship.ge/api/laptops?token=483f0e2b69ba369ee963
         const name = item.user.name;
         const surname = item.user.surname;
         const laptopName = item.laptop.name;
+        laptopId = item.laptop.id
+        arr.push(laptopId)
         const newCard = document.importNode(cardTemplate.content, true)
 
         const personName = newCard.querySelector('.person-name');
         const personLaptop = newCard.querySelector('.person-laptop');
-        const laptopImage = newCard.querySelector('.laptop-image')
+        const laptopImage = newCard.querySelector('.laptop-image');
 
         personName.innerText = name + ' ' + surname;
         personLaptop.innerText = laptopName;
         laptopImage.src = `https://pcfy.redberryinternship.ge${img}`;
 
         container.appendChild(newCard);
+
     })
 }).catch(err => {
     console.log(err)
 })
+
+console.log(arr)

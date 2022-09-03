@@ -519,6 +519,7 @@ body{
 
                         }
                         @extend %error;
+                        @extend %radioError;
 
                         .radio, .laptop-radio{
                             & > div {
@@ -566,7 +567,7 @@ body{
                             }
 
                         }
-                        @extend %radioError;
+                        
 
                         
 

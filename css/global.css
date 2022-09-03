@@ -64,7 +64,7 @@ body .container-2 .s-2 .form-wrapper form .input-box .input-wrapper.error .conte
 body .container-2 .s-2 .form-wrapper form .input-box .error div > h1 {
   color: #E52F2F;
 }
-body .container-2 .s-2 .form-wrapper form .input-box .error div > img {
+body .container-2 .s-2 .form-wrapper form .input-box .error .error-image-sm {
   display: block;
 }
 

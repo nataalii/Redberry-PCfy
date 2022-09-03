@@ -4,7 +4,8 @@
 }
 h1, h2, h3, h4, h5, p, input, label, a, button{
     font-family: "HalveticaNeue", sans-serif;
-}// laptop list
+}
+// laptop list
 body{
     background-color: white;
     .back-btn{
@@ -18,7 +19,7 @@ body{
         border: none;
         cursor: pointer;
     }
-    .laptop-list{
+    .laptop-list, .laptop-info{
         width: 280px;
         margin: auto;      
         font-size: 34px;
@@ -105,10 +106,6 @@ body{
                     width: 95%;
 
                     & > div{
-                        // display: flex;
-                        // flex-direction: column;
-                        // justify-content: center;
-                        // height: 109px;
     
                         h5{
                             margin-top: 10px;
@@ -132,4 +129,66 @@ body{
             }
         }
     }
+
+
+    .container-4{
+        max-width: 1200px;
+        margin: 100px auto;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        @media (max-width: 390px) {
+            margin: 10px auto;
+        }
+
+        .first-section, .second-section, .third-section{
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            & > .left-block{
+                width: 50%;
+                & > img{
+                    width: 100%;
+                }
+            }
+
+            .info-wrapper{
+                width: 45%;
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                .info-key-block, .info-value-block{
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    margin-right: 80px;
+                }
+    
+                .info-key-block p{
+                    color: #2E2E2E;
+                    font-weight: 600;
+                    font-size: 22px;
+                    margin-top: 10px;
+                }
+                .info-value-block p{
+                    color: #797979;
+                    font-weight: 400;
+                    font-size: 22px;
+                    margin-top: 10px;
+
+                }
+            }
+
+            .info-wrapper-3, .info-wrapper-5{
+                align-items: flex-start;
+            }
+            
+        }
+        hr{
+            width: 100%;
+            border: 1px solid #A5A5A5ed;
+            margin: 80px 0 54px 0;
+        }
+    }
+
 }

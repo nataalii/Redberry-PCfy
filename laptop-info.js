@@ -23,7 +23,8 @@ const stateRadioLabel = document.querySelectorAll('.state-radio-label')
 let regex = /^[a-z0-9!@#$%^&*()_+=]+$/i
 
 staffInfo.addEventListener('click', () => {
-    location.href = "staff-info.html"
+    location.href = "staff-info.html";
+    localStorage.clear();
 })
 
 
@@ -352,7 +353,7 @@ const validateInputs = () => {
     if(checkRadios(storageRadioBtn)){
         setSuccess(storageRadio, 'მეხსიერების ტიპი');
     } else {
-        setError(storageRadio, 'მეხსიერების ტიპი')
+        setError(storageRadio, 'მეხსიერების ტიპი');
     } 
 
     // laptop price validation
@@ -367,6 +368,7 @@ const validateInputs = () => {
         setSuccess(laptopStatus, 'ლეპტოპის მდგომარეობა');
     } else {
         setError(laptopStatus, 'ლეპტოპის მდგომარეობა')
+
     } 
     
     
@@ -415,5 +417,6 @@ const setSuccess = (element, message) => {
 const laptopListBtn = document.querySelector(".laptop-list-btn")
 laptopListBtn.addEventListener('click', () => {
     location.href = "laptop-list.html";
+    localStorage.clear();
 })
 
