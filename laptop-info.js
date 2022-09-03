@@ -79,7 +79,7 @@ function showFile(){
             let imageTag = `<img src="${fileURL}" alt="image">`
             dropArea.innerHTML = imageTag;
             dragArea.style.backgroundColor = "#F6F6F6";
-            dragArea.style.border = "2px dashed #8AC0E2";
+            dragArea.style.border = "none";
             imageName.innerHTML = file.name + '.';
             imageSize.innerHTML = bytesToSize(file.size);
             imageInfo.style.display = 'flex';
@@ -237,64 +237,50 @@ if(localStorage.laptop_hard_drive_type){
     option.querySelector("input").checked = true;
 }
 
-        
 // laptop info form validation
 form.addEventListener('submit', (e) =>{
     validateInputs();
-
     if(isFormValid()){
         e.preventDefault()
-        // const formData = new FormData(form);
-        // console.log(formData)
-        // formData.append('laptop_image', file)
-        console.log(file)
+        const formData = new FormData(form);
+        const searchParams = new URLSearchParams()
+
+        for(const pair of formData){
+            searchParams.append(pair[0], pair[1])
+        }
+
+        formData.append('token', "483f0e2b69ba369ee963e7399dd26ff6")
+        formData.append('laptop_image', file)
+        formData.append('laptop_brand_id', localStorage.laptop_brand_id)
+        formData.append('laptop_hard_drive_type', localStorage.laptop_hard_drive_type )
+        formData.append('laptop_state', localStorage.laptop_state )
+        formData.append('name', localStorage.name)
+        formData.append('surname', localStorage.surname)
+        formData.append('team_id', localStorage.team_id)
+        formData.append('position_id', localStorage.position_id)
+        formData.append('email', localStorage.email)
+        formData.append('phone_number', localStorage.phone_number)
+
         fetch("https://pcfy.redberryinternship.ge/api/laptop/create" ,{
             method: 'POST',
-            body:
-            JSON.stringify({
-                name: localStorage.name,
-                surname: localStorage.surname,
-                team_id: localStorage.team_id,
-                position_id: localStorage.position_id,
-                phone_number: localStorage.phone_number,
-                email: localStorage.email,
-                token: "483f0e2b69ba369ee963e7399dd26ff6",
-                laptop_image: file,
-                laptop_name: localStorage.laptop_name,
-                laptop_brand_id: localStorage.laptop_brand_id,
-                laptop_cpu: localStorage.laptop_cpu,
-                laptop_cpu_cores: localStorage.laptop_cpu_cores,
-                laptop_cpu_threads: localStorage.laptop_cpu_threads,
-                laptop_ram: localStorage.laptop_ram,
-                laptop_hard_drive_type: localStorage.laptop_hard_drive_type,
-                laptop_state: localStorage.laptop_state,
-                laptop_purchase_date: localStorage.laptop_purchase_date,
-                laptop_price: localStorage.laptop_price
-            }), 
-            headers: {
-                accept: "application/json; multipart/form-data", 
-                "Content-Type": "application/json; multipart/form-data",
-              },
-        }).then(function(response){
+            body: formData,
+        }).then(response =>{
             return response.text();
-        }).then(function (text) {
+        }).then(text => {
             console.log(text)
-        }).catch(function (error) {
-            console.log(error)
+        }).catch(err => {
+            console.log(err)
         })
         
         // When the user submit the form, open the modal 
-        // modal.style.display = "block";
-        
+        modal.style.display = "block";
         // form.submit();
+
     } else {
         e.preventDefault();
-
     }
-
-
-
 })
+
 
 function isFormValid(){
     const inputContainers = form.querySelectorAll('.input-wrapper');
@@ -423,4 +409,11 @@ const setSuccess = (element, message) => {
 
     inputControl.classList.remove('error')
 }
+
+
+//go to laptop list page from modal
+const laptopListBtn = document.querySelector(".laptop-list-btn")
+laptopListBtn.addEventListener('click', () => {
+    location.href = "laptop-list.html";
+})
 

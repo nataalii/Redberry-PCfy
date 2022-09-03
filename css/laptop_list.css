@@ -1,0 +1,117 @@
+@font-face {
+  font-family: HalveticaNeue;
+  src: url("../fonts/HelveticaNeue-01.ttf");
+}
+h1, h2, h3, h4, h5, p, input, label, a, button {
+  font-family: "HalveticaNeue", sans-serif;
+}
+
+body {
+  background-color: white;
+}
+body .back-btn {
+  position: absolute;
+  background-color: #D9D9D9;
+  width: 53px;
+  height: 53px;
+  border-radius: 50%;
+  top: 53px;
+  left: 70px;
+  border: none;
+  cursor: pointer;
+}
+body .laptop-list {
+  width: 280px;
+  margin: auto;
+  font-size: 34px;
+  font-weight: 700;
+  margin-top: 80px;
+}
+@media (max-width: 390px) {
+  body .laptop-list {
+    width: 130px;
+    margin: auto;
+    margin-top: 25px;
+    font-size: 16px;
+  }
+  body .back-btn {
+    background-color: transparent;
+    top: 5px;
+    left: 0px;
+  }
+}
+body .container-3 {
+  max-width: 1200px;
+  margin: 100px auto;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+@media (max-width: 390px) {
+  body .container-3 {
+    margin: 10px auto;
+  }
+}
+body .container-3 .card {
+  max-width: 560px;
+  width: 80%;
+  height: 200px;
+  background-color: #EAFAFF;
+  border: 1px solid #AED1EA;
+  border-radius: 20px;
+  margin-bottom: 55px;
+}
+body .container-3 .card .card-content {
+  margin: 10px auto;
+  max-width: 530px;
+  display: flex;
+  justify-content: space-between;
+}
+body .container-3 .card .card-content img {
+  max-width: 265px;
+  height: 180px;
+  border-radius: 10px;
+  margin-right: 20px;
+  object-fit: cover;
+}
+body .container-3 .card .card-content > div {
+  width: 230px;
+}
+body .container-3 .card .card-content > div h5 {
+  font-size: 18px;
+  color: #2E2E2E;
+  font-weight: 600;
+}
+body .container-3 .card .card-content > div h2 {
+  margin-top: -15px;
+  margin-bottom: 40px;
+  font-weight: 400;
+  font-size: 18px;
+  color: #2E2E2E;
+}
+body .container-3 .card .card-content > div a {
+  text-decoration: underline;
+  color: #4386A9;
+  font-weight: 400;
+}
+@media (max-width: 390px) {
+  body .container-3 .card {
+    width: 95%;
+    margin: 20px auto;
+    height: 125px;
+  }
+  body .container-3 .card .card-content {
+    margin: 8px auto;
+    width: 95%;
+  }
+  body .container-3 .card .card-content > img {
+    max-width: 165px;
+    height: 109px;
+  }
+  body .container-3 .card > div > div {
+    height: 109px;
+  }
+  body .container-3 .card > div > div h2 {
+    margin-top: -20px;
+  }
+}/*# sourceMappingURL=laptop_list.css.map */
