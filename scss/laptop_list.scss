@@ -64,7 +64,7 @@ body{
                 justify-content: space-between;
                 
                 img{
-                    max-width: 265px;
+                    width: 265px;
                     height: 180px;
                     border-radius: 10px;
                     margin-right: 20px;
@@ -103,18 +103,31 @@ body{
                 .card-content{
                     margin: 8px auto;
                     width: 95%;
+
+                    & > div{
+                        // display: flex;
+                        // flex-direction: column;
+                        // justify-content: center;
+                        // height: 109px;
+    
+                        h5{
+                            margin-top: 10px;
+                            font-size: 14px;
+                        }
+                        h2{
+                            margin-bottom: 15px;
+                        }
+                        a{
+                            margin-top: -20px;
+                        }
+                    }
+
                 }
                 .card-content > img{
-                    max-width: 165px;
+                    max-width: 45%;
                     height: 109px;
                 }
-                & > div > div{
-                    height: 109px;
 
-                    h2{
-                        margin-top: -20px;
-                    }
-                }
 
             }
         }

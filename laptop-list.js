@@ -9,6 +9,7 @@ fetch("https://pcfy.redberryinternship.ge/api/laptops?token=483f0e2b69ba369ee963
     finalData.data.forEach(item => {
         const img = item.laptop.image
         const name = item.user.name;
+        const surname = item.user.surname;
         const laptopName = item.laptop.name;
         const newCard = document.importNode(cardTemplate.content, true)
 
@@ -16,10 +17,10 @@ fetch("https://pcfy.redberryinternship.ge/api/laptops?token=483f0e2b69ba369ee963
         const personLaptop = newCard.querySelector('.person-laptop');
         const laptopImage = newCard.querySelector('.laptop-image')
 
-        personName.innerText = name;
+        personName.innerText = name + ' ' + surname;
         personLaptop.innerText = laptopName;
         laptopImage.src = `https://pcfy.redberryinternship.ge${img}`;
-        
+
         container.appendChild(newCard);
     })
 }).catch(err => {

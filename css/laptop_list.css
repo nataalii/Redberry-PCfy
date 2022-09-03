@@ -68,7 +68,7 @@ body .container-3 .card .card-content {
   justify-content: space-between;
 }
 body .container-3 .card .card-content img {
-  max-width: 265px;
+  width: 265px;
   height: 180px;
   border-radius: 10px;
   margin-right: 20px;
@@ -104,14 +104,18 @@ body .container-3 .card .card-content > div a {
     margin: 8px auto;
     width: 95%;
   }
-  body .container-3 .card .card-content > img {
-    max-width: 165px;
-    height: 109px;
+  body .container-3 .card .card-content > div h5 {
+    margin-top: 10px;
+    font-size: 14px;
   }
-  body .container-3 .card > div > div {
-    height: 109px;
+  body .container-3 .card .card-content > div h2 {
+    margin-bottom: 15px;
   }
-  body .container-3 .card > div > div h2 {
+  body .container-3 .card .card-content > div a {
     margin-top: -20px;
+  }
+  body .container-3 .card .card-content > img {
+    max-width: 45%;
+    height: 109px;
   }
 }/*# sourceMappingURL=laptop_list.css.map */
