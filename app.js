@@ -11,11 +11,6 @@ const geoAlph = /^[ა-ჰ]+$/;
 const engAlph = /^[a-zA-Z0-9@.]+$/;
 const phoneNum = /^(\+?995)?(79\d{7}|5\d{8})$/
 
-
-// laptopInfo.addEventListener('click', () => {
-//     location.href = "laptop-info.html"
-// })
-
 // if the user refreshes a page, info will be saved
 // grab inputs from local storage
 firstName.addEventListener("keyup", event => {
@@ -113,18 +108,13 @@ function show(value) {
                 console.log(err)
             })
         } 
-
     })
-
-
 }
 
 function showPositions(value) {
     document.querySelector('.positionTextBox').value = value;
     localStorage.setItem('position', position.value)
 }
-
-
 
 let teamsDropdown = document.querySelector('.teams-dropdown')
 let positionsDropdown = document.querySelector('.positions-dropdown')
@@ -137,14 +127,16 @@ positionsDropdown.onclick = function() {
     positionsDropdown.classList.toggle('active')
 }
 
-
 // staff info form validation
 // Submitting the form
 btn.addEventListener('click', (e) =>{
     validateInputs();
     if(isFormValid() == true){
+        location.href = "laptop-info.html";
+        laptopInfo.addEventListener('click', () => {
+            location.href = "laptop-info.html"
+        })
 
-        location.href = "laptop-info.html"
     } else {
         e.preventDefault();
     }
@@ -220,14 +212,10 @@ const validateInputs = () => {
     } else {
         setSuccess(phone, 'უნდა აკმაყოფილებდეს ქართული მობ-ნომრის ფორმატს');
     }
-
-    
-
 }
 const setError = (element, message) => {
      const inputControl = element.parentElement;
      const errorDisplay = inputControl.querySelector('.error-message')
-
      errorDisplay.innerText = message
      inputControl.classList.add('error');
 }

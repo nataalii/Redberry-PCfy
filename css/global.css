@@ -134,15 +134,21 @@ input {
   background-color: #1A5DAB;
 }
 @media (max-width: 390px) {
+  .container > img:nth-child(1) {
+    margin-bottom: 117px;
+  }
   .container > img:nth-child(2) {
     display: none;
   }
   .container a > button {
     width: 358px;
   }
+  .container #list-button {
+    margin-top: -12px;
+  }
   .container > img:nth-child(3) {
     display: block;
-    margin-bottom: 130px;
+    margin-bottom: 120px;
   }
 }
 
@@ -395,6 +401,15 @@ body .container-2 .s-2 .form-wrapper {
   background-color: white;
   box-shadow: 2px 9px 14px -6px rgba(0, 0, 0, 0.37);
 }
+@media (max-width: 390px) {
+  body .container-2 .s-2 .form-wrapper {
+    border-radius: 0px;
+    height: 2000px;
+  }
+  body .container-2 .s-2 .form-wrapper form {
+    height: 1800px;
+  }
+}
 body .container-2 .s-2 .form-wrapper form {
   max-width: 800px;
   height: 1300px;
@@ -457,6 +472,28 @@ body .container-2 .s-2 .form-wrapper form .drag-area .input-wrapper.active {
 }
 body .container-2 .s-2 .form-wrapper form .drag-area .input-wrapper.error h2 {
   color: #E52F2F;
+}
+@media (max-width: 390px) {
+  body .container-2 .s-2 .form-wrapper form {
+    width: 90%;
+  }
+  body .container-2 .s-2 .form-wrapper form .drag-area {
+    height: 214px;
+    margin-top: -20px;
+    border-radius: 8px;
+  }
+  body .container-2 .s-2 .form-wrapper form .drag-area h2 {
+    display: none;
+  }
+  body .container-2 .s-2 .form-wrapper form .drag-area button {
+    display: none;
+  }
+  body .container-2 .s-2 .form-wrapper form .drag-area .camera-image {
+    display: block;
+  }
+  body .container-2 .s-2 .form-wrapper form .drag-area h3 {
+    display: block;
+  }
 }
 body .container-2 .s-2 .form-wrapper form .image-info {
   justify-content: space-between;
@@ -526,6 +563,14 @@ body .container-2 .s-2 .form-wrapper form .input-box .input-wrapper > p {
 }
 body .container-2 .s-2 .form-wrapper form .input-box .input-wrapper img {
   margin-left: 30px;
+}
+@media (max-width: 390px) {
+  body .container-2 .s-2 .form-wrapper form .input-box {
+    flex-direction: column;
+  }
+  body .container-2 .s-2 .form-wrapper form .input-box .input-wrapper-2 {
+    margin-top: 60px;
+  }
 }
 body .container-2 .s-2 .form-wrapper form .input-box .radio > div, body .container-2 .s-2 .form-wrapper form .input-box .laptop-radio > div {
   display: flex;
