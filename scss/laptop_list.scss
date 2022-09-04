@@ -25,7 +25,6 @@ body{
         font-size: 34px;
         font-weight: 700;
         margin-top: 80px;
-
     }
     @media (max-width: 390px) {
         .laptop-list{
@@ -150,9 +149,6 @@ body{
                 width: 50%;
                 & > img{
                     width: 100%;
-                    height: 341px;
-                    object-fit: cover;
-                    
                 }
             }
 
@@ -180,10 +176,6 @@ body{
                     font-size: 22px;
                     margin-top: 10px;
 
-                }
-
-                .block-4{
-                    margin-left: -65px;
                 }
             }
 
