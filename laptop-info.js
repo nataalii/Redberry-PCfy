@@ -20,7 +20,7 @@ const storageRadioBtn = document.querySelectorAll('.storage-radio')
 const laptopStatusBtn = document.querySelectorAll('.radio-btn')
 const storageRadioLabel = document.querySelectorAll('.storage-radio-label')
 const stateRadioLabel = document.querySelectorAll('.state-radio-label')
-let regex = /^[a-z0-9!@#$%^&*()_+=]+$/i
+let regex = /^[a-z0-9!@#$%^&*()_+= ]+$/i
 
 staffInfo.addEventListener('click', () => {
     location.href = "staff-info.html";
@@ -242,7 +242,7 @@ form.addEventListener('submit', (e) =>{
             searchParams.append(pair[0], pair[1])
         }
 
-        formData.append('token', "483f0e2b69ba369ee963e7399dd26ff6")
+        formData.append('token', "d3e7d23b808a7bf905776d933ecec3ed")
         formData.append('laptop_image', file)
         formData.append('laptop_brand_id', localStorage.laptop_brand_id)
         formData.append('laptop_hard_drive_type', localStorage.laptop_hard_drive_type)
@@ -267,6 +267,7 @@ form.addEventListener('submit', (e) =>{
         
         // When the user submit the form, open the modal 
         modal.style.display = "block";
+        localStorage.clear();
         // form.submit();
     } else {
         e.preventDefault();
@@ -363,7 +364,7 @@ const validateInputs = () => {
         setSuccess(dragAreaContent, '')
     }
     
-    localStorage.setItem('laptop_purchase_date', date.value)
+    localStorage.setItem('laptop_purchase_date', date.value);
 }
 
 function checkRadios(radios) {
@@ -394,6 +395,5 @@ const setSuccess = (element, message) => {
 const laptopListBtn = document.querySelector(".laptop-list-btn")
 laptopListBtn.addEventListener('click', () => {
     location.href = "laptop-list.html";
-    localStorage.clear();
 })
 

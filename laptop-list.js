@@ -2,7 +2,7 @@ const laptopListBtn = document.querySelector('.laptop-list-btn')
 const cardTemplate = document.querySelector('.card-template')
 const container = document.querySelector('.container-3')
 
-fetch("https://pcfy.redberryinternship.ge/api/laptops?token=483f0e2b69ba369ee963e7399dd26ff6").then(res => {
+fetch("https://pcfy.redberryinternship.ge/api/laptops?token=d3e7d23b808a7bf905776d933ecec3ed").then(res => {
     return res.json()
 }).then(finalData => {
     console.log(finalData)
@@ -33,7 +33,7 @@ fetch("https://pcfy.redberryinternship.ge/api/laptops?token=483f0e2b69ba369ee963
         function seeMoreInfo(e) {
             e.preventDefault()
             const dataId = e.target.id
-            fetch(`https://pcfy.redberryinternship.ge/api/laptop/${dataId}?token=483f0e2b69ba369ee963e7399dd26ff6`).then(res =>{
+            fetch(`https://pcfy.redberryinternship.ge/api/laptop/${dataId}?token=d3e7d23b808a7bf905776d933ecec3ed`).then(res =>{
                 return res.json();
             }).then(finalData => {
                 location.href = `more-laptop-info.html?laptopid=${dataId}`;

@@ -8,7 +8,7 @@ const laptopImage = document.querySelector('.laptop-image')
 const params = new URLSearchParams(location.search)
 const param = params.get("laptopid")
 
-fetch(`https://pcfy.redberryinternship.ge/api/laptop/${param}?token=483f0e2b69ba369ee963e7399dd26ff6`).then(res => {
+fetch(`https://pcfy.redberryinternship.ge/api/laptop/${param}?token=d3e7d23b808a7bf905776d933ecec3ed`).then(res => {
     return res.json();
 }).then(finalData => {
     const laptop = finalData.data.laptop;
@@ -73,13 +73,14 @@ fetch(`https://pcfy.redberryinternship.ge/api/laptop/${param}?token=483f0e2b69ba
     })
 
     //additional info
-    if(laptop.state === 'new'){
-        laptop.state = 'ახალი'
-    } else {
-        laptop.state === 'მეორადი'
+    let state;
+    if(laptop.state === 'used'){
+        state = 'მეორადი'
+    } else if(laptop.state === 'new'){
+        state = 'ახალი'
     }
     const block4Value = `
-        <p>${laptop.state}</p>
+        <p>${state}</p>
         <p>${laptop.price} ₾</p>
     `
     block4.innerHTML = block4Value;
