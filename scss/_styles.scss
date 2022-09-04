@@ -58,15 +58,21 @@ input{
 
     }
     @media (max-width: $mobile-break) {
+        &> img:nth-child(1){
+            margin-bottom: 117px;
+        }
         & > img:nth-child(2){
             display: none;
         }
         a > button{
             width: 358px;
         }
+        #list-button{
+            margin-top: -12px;
+        }
         & > img:nth-child(3){
             display: block;
-            margin-bottom: 130px;
+            margin-bottom: 120px;
         }
     }
 }
@@ -365,6 +371,15 @@ body{
                 background-color: white;
                 box-shadow: 2px 9px 14px -6px rgba(0,0,0,0.37);
 
+                @media (max-width: $mobile-break) {
+                    border-radius: 0px;
+                    height: 2000px;
+                    form{
+                        height: 1800px;
+                    }
+                
+                }
+
                 form {
                     max-width: 800px;
                     height: 1300px;
@@ -440,6 +455,29 @@ body{
                         }
 
                     }
+                    @media (max-width: $mobile-break) {
+                        width: 90%;
+
+                        .drag-area{
+                            height: 214px;
+                            margin-top: -20px;
+                            border-radius: 8px;
+
+                            h2{
+                                display: none;
+                            }
+                            button{
+                                display: none;
+                            }
+                            .camera-image{
+                                display: block;
+                            }
+                            h3{
+                                display: block;
+                            }
+
+                        }
+                    }
                     .image-info{
                         justify-content: space-between;
                         align-items: center;
@@ -476,8 +514,6 @@ body{
                         justify-content: space-between;
                         width: 100%;
                         margin-bottom: 30px;
-
-    
 
                         .input-wrapper{
                             width: 100%;
@@ -518,8 +554,14 @@ body{
                             }
 
                         }
+                        @media (max-width: $mobile-break) {
+                            flex-direction: column;
+                            .input-wrapper-2{
+                                margin-top: 60px;
+                            }
+                        }
                         @extend %error;
-                        @extend %radioError;
+                        @extend %radioError; 
 
                         .radio, .laptop-radio{
                             & > div {
@@ -574,6 +616,10 @@ body{
                         .laptop-brand-dropdown, .cpu-dropdown{
                             position: relative;
                             margin-top: 15px;
+
+                            // @media (max-width: $mobile-break) {
+                            //     margin-top: 40px;
+                            // }
                        
                             & > input{
                                 width: 100%;

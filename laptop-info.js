@@ -24,9 +24,7 @@ let regex = /^[a-z0-9!@#$%^&*()_+=]+$/i
 
 staffInfo.addEventListener('click', () => {
     location.href = "staff-info.html";
-    localStorage.clear();
 })
-
 
 // laptop image upload
 const dropArea = document.querySelector('.drag-area');
@@ -86,8 +84,6 @@ function showFile(){
             imageInfo.style.display = 'flex';
         } 
         fileReader.readAsDataURL(file)
-
-
     } else {
         alert('ატვირთეთ მხოლოდ ფოტო!')
         dropArea.classList.remove('active')
@@ -126,9 +122,7 @@ fetch('https://pcfy.redberryinternship.ge/api/brands').then(res => {
 function show(value) {
     document.querySelector('.brandTextBox').value = value;
     localStorage.setItem("laptop_brand", laptopBrand.value);
-
 }
-
 
 // fetch cpu api
 fetch('https://pcfy.redberryinternship.ge/api/cpus').then(res => {
@@ -148,7 +142,6 @@ function showCpu(value) {
     localStorage.setItem('laptop_cpu', cpu.value )
 }
 
-
 // adding active class to the dropdowns by clicking on brandsDropdown and cpusDropdown
 //(in order to change display of the dropdown)
 const brandsDropdown = document.querySelector('.laptop-brand-dropdown')
@@ -157,7 +150,6 @@ const cpusDropdown = document.querySelector('.cpu-dropdown')
 brandsDropdown.onclick = function() {
     brandsDropdown.classList.toggle('active')
 }
-
 cpusDropdown.onclick = function() {
     cpusDropdown.classList.toggle('active')
 }
@@ -253,7 +245,7 @@ form.addEventListener('submit', (e) =>{
         formData.append('token', "483f0e2b69ba369ee963e7399dd26ff6")
         formData.append('laptop_image', file)
         formData.append('laptop_brand_id', localStorage.laptop_brand_id)
-        formData.append('laptop_hard_drive_type', localStorage.laptop_hard_drive_type )
+        formData.append('laptop_hard_drive_type', localStorage.laptop_hard_drive_type)
         formData.append('laptop_state', localStorage.laptop_state )
         formData.append('name', localStorage.name)
         formData.append('surname', localStorage.surname)
@@ -276,7 +268,6 @@ form.addEventListener('submit', (e) =>{
         // When the user submit the form, open the modal 
         modal.style.display = "block";
         // form.submit();
-
     } else {
         e.preventDefault();
     }
@@ -313,56 +304,48 @@ const validateInputs = () => {
     } else {
         setSuccess(laptopName, 'ლათინური ასოები, ციფრები, !@#$%^&*()_+=')
     }
-
     // brand validation
     if(laptopBrandValue === ''){
         setError(laptopBrand, '')
     } else {
         setSuccess(laptopBrand, '')
     }
-
     // cpu validation
     if(cpuValue === ''){
         setError(cpu, '')
     } else {
         setSuccess(cpu, '')
     }
-
     // cpu cores validation
     if(cpuCoresValue === ''){
         setError(cpuCores, 'ამ ველის შევსება სავალდებულოა!');
     } else {
         setSuccess(cpuCores, 'მხოლოდ ციფრები');
     }
-
     //cpu threads validation
     if(cpuThreadsValue === ''){
         setError(cpuThreads, 'ამ ველის შევსება სავალდებულოა!');
     } else {
         setSuccess(cpuThreads, 'მხოლოდ ციფრები');
     }
-
     // ram validation
     if(ramValue === ''){
         setError(ram, 'ამ ველის შევსება სავალდებულოა!');
     } else {
         setSuccess(ram, 'მხოლოდ ციფრები');
     }
-    
     // storage type validation
     if(checkRadios(storageRadioBtn)){
         setSuccess(storageRadio, 'მეხსიერების ტიპი');
     } else {
         setError(storageRadio, 'მეხსიერების ტიპი');
     } 
-
     // laptop price validation
     if(priceValue === ''){
         setError(price, 'ამ ველის შევსება სავალდებულოა!');
     } else {
         setSuccess(price, 'მხოლოდ ციფრები');
     }
-
     // laptop status validation
     if(checkRadios(laptopStatusBtn)){
         setSuccess(laptopStatus, 'ლეპტოპის მდგომარეობა');
@@ -371,19 +354,16 @@ const validateInputs = () => {
 
     } 
     
-    
-    if(file === undefined ){
+    if(file === undefined){
         document.querySelector('.error-image').style.display = "block";
         dragArea.style.backgroundColor = "#FFF1F1";
         dragArea.style.border = "2px dashed #E52F2F";
-        
         setError(dragAreaContent, 'ჩააგდე ან ატვირთე ლეპტოპის ფოტო');
     } else{
         setSuccess(dragAreaContent, '')
     }
     
     localStorage.setItem('laptop_purchase_date', date.value)
-
 }
 
 function checkRadios(radios) {
@@ -399,7 +379,6 @@ function checkRadios(radios) {
 const setError = (element, message) => {
      const inputControl = element.parentElement;
      const errorDisplay = inputControl.querySelector('.error-message')
-
      errorDisplay.innerText = message
      inputControl.classList.add('error');
 }
@@ -408,10 +387,8 @@ const setSuccess = (element, message) => {
     const inputControl = element.parentElement;
     const errorDisplay = inputControl.querySelector('.error-message')
     errorDisplay.innerText = message
-
     inputControl.classList.remove('error')
 }
-
 
 //go to laptop list page from modal
 const laptopListBtn = document.querySelector(".laptop-list-btn")
