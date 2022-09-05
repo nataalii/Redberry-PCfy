@@ -134,6 +134,7 @@ body{
 
     .container-4{
         max-width: 1200px;
+        width: 100%;
         margin: 100px auto;
         display: flex;
         justify-content: space-between;
@@ -216,12 +217,15 @@ body{
 
                         & > p{
                             font-size: 14px;
+                            margin-top: -3px;
                         }
                     }
 
                     .info-value-block{
                         & > p{
                             font-size: 14px;
+                            margin-top: -3px;
+
                         }
                     }
                 }
@@ -250,6 +254,7 @@ body{
                 margin: 40px 10px;
             }
         }
+
     }
 
 }

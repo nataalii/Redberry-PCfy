@@ -122,6 +122,7 @@ body .container-3 .card .card-content > div a {
 }
 body .container-4 {
   max-width: 1200px;
+  width: 100%;
   margin: 100px auto;
   display: flex;
   justify-content: space-between;
@@ -198,9 +199,11 @@ body .container-4 .first-section .info-wrapper-3, body .container-4 .first-secti
   }
   body .container-4 .first-section .info-wrapper .info-key-block > p, body .container-4 .second-section .info-wrapper .info-key-block > p, body .container-4 .third-section .info-wrapper .info-key-block > p {
     font-size: 14px;
+    margin-top: -3px;
   }
   body .container-4 .first-section .info-wrapper .info-value-block > p, body .container-4 .second-section .info-wrapper .info-value-block > p, body .container-4 .third-section .info-wrapper .info-value-block > p {
     font-size: 14px;
+    margin-top: -3px;
   }
   body .container-4 .first-section .info-wrapper-3 .info-key-block, body .container-4 .second-section .info-wrapper-3 .info-key-block, body .container-4 .third-section .info-wrapper-3 .info-key-block {
     margin-right: 80px;

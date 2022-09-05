@@ -20,7 +20,7 @@ const storageRadioBtn = document.querySelectorAll('.storage-radio')
 const laptopStatusBtn = document.querySelectorAll('.radio-btn')
 const storageRadioLabel = document.querySelectorAll('.storage-radio-label')
 const stateRadioLabel = document.querySelectorAll('.state-radio-label')
-let regex = /^[a-z0-9!@#$%^&*()_+= ]+$/i
+let regex = /^[a-z0-9!@#$%^&*()_+=]+$/i
 
 staffInfo.addEventListener('click', () => {
     location.href = "staff-info.html";
@@ -83,9 +83,10 @@ function showFile(){
             dropArea.innerHTML = imageTag;
             dragArea.style.backgroundColor = "#F6F6F6";
             dragArea.style.border = "none";
-            imageName.innerHTML = file.name + '.';
+            imageName.innerHTML = file.name.substring(0, 11) + '...';
             imageSize.innerHTML = bytesToSize(file.size);
             imageInfo.style.display = 'flex';
+
         } 
         fileReader.readAsDataURL(file)
     } else {

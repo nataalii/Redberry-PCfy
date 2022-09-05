@@ -84,7 +84,10 @@ fetch(`https://pcfy.redberryinternship.ge/api/laptop/${param}?token=d3e7d23b808a
         <p>${laptop.price} ₾</p>
     `
     block4.innerHTML = block4Value;
-    block5.innerHTML = `<p>${(laptop.purchase_date).replaceAll('-', ' / ')}</p>`
+    if(laptop.purchase_date !== null){
+        block5.innerHTML = `<p>${(laptop.purchase_date).replaceAll('-', ' / ')}</p>`
+
+    }
 
 
 })

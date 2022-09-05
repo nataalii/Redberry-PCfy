@@ -185,6 +185,9 @@ body .container-2 .titles > h3 hr {
 body .container-2 .titles > h1 {
   display: none;
 }
+body .container-2 .titles .laptop-info-responsive, body .container-2 .titles .staff-info-responsive {
+  display: none;
+}
 @media (max-width: 390px) {
   body .container-2 .titles {
     flex-direction: column;
@@ -205,8 +208,11 @@ body .container-2 .titles > h1 {
     margin-top: 7px;
     color: #898989;
   }
-  body .container-2 .titles .laptop-info {
+  body .container-2 .titles .laptop-info, body .container-2 .titles .staff-info {
     display: none;
+  }
+  body .container-2 .titles .laptop-info-responsive, body .container-2 .titles .staff-info-responsive {
+    display: block;
   }
   body .container-2 > a > button {
     top: 10px;
@@ -416,6 +422,7 @@ body .container-2 .s-2 .form-wrapper {
   body .container-2 .s-2 .form-wrapper {
     border-radius: 0px;
     height: 1650px;
+    width: 100%;
     box-shadow: none;
   }
 }
@@ -563,12 +570,22 @@ body .container-2 .s-2 .form-wrapper form .image-info button:focus {
     margin: 10px 0;
   }
   body .container-2 .s-2 .form-wrapper form .image-info > div {
-    flex-direction: column;
-    align-items: flex-start;
     width: 40%;
+  }
+  body .container-2 .s-2 .form-wrapper form .image-info > div > div {
+    flex-direction: column;
+    width: 130px;
+    margin-left: -5px;
+  }
+  body .container-2 .s-2 .form-wrapper form .image-info > div > div div > P {
+    margin-left: -5px;
   }
   body .container-2 .s-2 .form-wrapper form .image-info button {
     width: 60%;
+    height: 50px;
+  }
+  body .container-2 .s-2 .form-wrapper form .image-info .image-size {
+    margin-left: 25px;
   }
 }
 body .container-2 .s-2 .form-wrapper form .input-box {
@@ -711,6 +728,11 @@ body .container-2 .s-2 .form-wrapper form .input-box .cpu-dropdown {
   margin-right: 50px;
   margin-top: 45px;
 }
+@media (max-width: 390px) {
+  body .container-2 .s-2 .form-wrapper form .input-box .cpu-dropdown {
+    margin-top: 15px;
+  }
+}
 body .container-2 .s-2 .form-wrapper form hr {
   width: 100%;
   background-color: #C7C7C7;
@@ -720,6 +742,8 @@ body .container-2 .s-2 .form-wrapper form hr {
 }
 @media (max-width: 390px) {
   body .container-2 .s-2 .form-wrapper form hr {
+    background-color: #EBEBEB;
+    height: 6px;
     margin-bottom: 5px;
   }
 }

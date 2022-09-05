@@ -9,11 +9,9 @@ const team = document.getElementById('team');
 const position = document.getElementById('position');
 const geoAlph = /^[ა-ჰ]+$/;
 const engAlph = /^[a-zA-Z0-9@.]+$/;
-const phoneNum = /^(\+?995)?(79\d{7}|5\d{8})$/
+const phoneNum =  /\+\S*9\S*9\S*5\S*5\S*[976514]\S*\d\S*\d\S*\d\S*\d\S*\d\S*\d\S*\d\S*/;
 
-laptopInfo.addEventListener('click', () => {
-    location.href = "laptop-info.html"
-})
+
 
 // if the user refreshes a page, info will be saved
 // grab inputs from local storage

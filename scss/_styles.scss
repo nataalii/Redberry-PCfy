@@ -117,6 +117,9 @@ body{
             & > h1 {
                 display: none;
             }
+            .laptop-info-responsive, .staff-info-responsive{
+                display: none;
+            }
             
         }
         @media (max-width: $mobile-break) {
@@ -138,8 +141,11 @@ body{
                     margin-top: 7px;
                     color: #898989;
                 }
-                .laptop-info{
+                .laptop-info, .staff-info{
                     display: none;
+                }
+                .laptop-info-responsive, .staff-info-responsive{
+                    display: block;
                 }
             }
             & > a > button{
@@ -385,6 +391,7 @@ body{
                 @media (max-width: $mobile-break) {
                     border-radius: 0px;
                     height: 1650px;
+                    width: 100%;
                     box-shadow: none;
                 
                 }
@@ -545,13 +552,25 @@ body{
                         @media (max-width: $mobile-break) {
                             margin: 10px 0;
                             & > div{
-                                flex-direction: column;
-                                align-items: flex-start;
                                 width: 40%;
+
+                                & > div{
+                                    flex-direction: column;
+                                    width: 130px;
+                                    margin-left: -5px;
+
+                                    div > P{
+                                        margin-left: -5px;
+                                    }
+                                }
 
                             }
                             button{
                                 width: 60%;
+                                height: 50px;
+                            }
+                            .image-size{
+                                margin-left: 25px;
                             }
                         }
 
@@ -735,6 +754,10 @@ body{
                         .cpu-dropdown{
                             margin-right: 50px;
                             margin-top:45px;
+
+                            @media (max-width: $mobile-break) {
+                                margin-top: 15px;
+                            }
                         }
 
                     }
@@ -747,6 +770,8 @@ body{
                         margin-bottom: 30px;
 
                         @media (max-width: $mobile-break) {
+                            background-color: #EBEBEB;
+                            height: 6px;
                             margin-bottom: 5px;
                         }
                     }
