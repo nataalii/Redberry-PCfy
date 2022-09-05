@@ -34,11 +34,15 @@ const uploadAgainBtn = document.querySelector('#upload-again-btn');
 const imageInfo = document.querySelector('.image-info');
 const imageName = document.querySelector('.image-name');
 const imageSize = document.querySelector('.image-size');
+const uploadImage = document.querySelector('.camera-image')
 let file;
 customBtn.onclick = () =>{
     input.click();
 }
 uploadAgainBtn.onclick = () => {
+    input.click();
+}
+uploadImage.onclick = () => {
     input.click();
 }
 

@@ -124,9 +124,10 @@ body{
                 flex-direction: column;
                 margin: 25px auto;
                 margin-bottom: 10px;
-                width: 175px;
+                width: 220px;
                 h3{
                     font-size: 16px;
+                    text-align: center;
                     hr{
                         display: none;
                     }
@@ -162,7 +163,7 @@ body{
                 -moz-box-shadow: 2px 9px 14px -6px rgba(0,0,0,0.37);
 
                 @media (max-width: $mobile-break){
-                    border-radius: 0px;                    
+                    border-radius: 0px;      
                 }
                 form{
                     max-width:  900px;
@@ -208,21 +209,31 @@ body{
                             font-weight: 300;
                             font-size: small;
                         }
+                        .err2{
+                            display: none;
+                        }
                     }
 
                     @media (max-width: $mobile-break) {
                         .input-flex{
                             flex-direction: column;
                             width: 100%;
+                            margin-top: 20px;
                             .input-wrapper{
                                 width: 92%;
-                                margin-left: 4%;
-                            }
+                                margin: 15px 4%;
 
+                            }
 
                         }
                         .input-wrapper{
                             width: 92%;
+                            .err1{
+                                display: none;
+                            }
+                            .err2{
+                                display: block;
+                            }
                         }
                     }
 
@@ -364,7 +375,7 @@ body{
         .s-2{
             .form-wrapper{
                 max-width: 1226px;
-                height: 1400px;
+                height: 1500px;
                 margin: auto;
                 border-radius: 18px;
                 position: relative;
@@ -373,10 +384,8 @@ body{
 
                 @media (max-width: $mobile-break) {
                     border-radius: 0px;
-                    height: 2000px;
-                    form{
-                        height: 1800px;
-                    }
+                    height: 1650px;
+                    box-shadow: none;
                 
                 }
 
@@ -414,9 +423,11 @@ body{
                         .input-wrapper{
                             .content{
                                 width: 200px;
+                                .camera-image {
+                                    display: none;
+                                }
                                 .error-image{
                                     width: 40px;
-                                    // margin: 5px 40%;
                                     display: none;
                                     margin-left: 40%;
                                     margin-top: -50px;
@@ -432,6 +443,9 @@ body{
                                     line-height: 38px;
                                 }
     
+                                h3{
+                                    display: none;
+                                }
                                 button{
                                     background-color: $button-color;
                                     color: white;
@@ -456,24 +470,46 @@ body{
 
                     }
                     @media (max-width: $mobile-break) {
+                        height: 1500px;
                         width: 90%;
 
                         .drag-area{
                             height: 214px;
                             margin-top: -20px;
                             border-radius: 8px;
+                            margin-bottom: 0px;
 
-                            h2{
-                                display: none;
-                            }
-                            button{
-                                display: none;
-                            }
-                            .camera-image{
-                                display: block;
-                            }
-                            h3{
-                                display: block;
+                            .input-wrapper > .content{
+                                display: flex;
+                                flex-direction: column;
+                                justify-content: center;
+                                align-items: center;
+                                h2{
+                                    display: none;
+                                }
+                                h3{
+                                    display: block;
+                                    text-align: center;
+                                    margin-top: 20px;
+                                    color: #4386A9;
+                                    line-height: 26px;
+
+                                }
+                                button{
+                                    display: none;
+                                }
+                                .camera-image{
+                                    display: block;
+                                }
+                                .err2-image{
+                                    width: 25px;
+                                    margin-top: -5px;
+                                    margin-right: 40%;
+                                }
+                                h3{
+                                    display: block;
+                                }
+
                             }
 
                         }
@@ -506,6 +542,19 @@ body{
                             }
                         }
 
+                        @media (max-width: $mobile-break) {
+                            margin: 10px 0;
+                            & > div{
+                                flex-direction: column;
+                                align-items: flex-start;
+                                width: 40%;
+
+                            }
+                            button{
+                                width: 60%;
+                            }
+                        }
+
                     }
 
                     .input-box{
@@ -513,10 +562,11 @@ body{
                         align-items: flex-start;
                         justify-content: space-between;
                         width: 100%;
-                        margin-bottom: 30px;
+                        margin-bottom: 20px;
 
                         .input-wrapper{
                             width: 100%;
+                            margin-top: 25px;
                             &:nth-child(1){
                                 margin-right: 50px;
                             }
@@ -548,17 +598,26 @@ body{
                                 font-weight: 300;
                                 font-size: small;
                             }
-
-                            img{
-                                margin-left: 30px
+                            & > .lari-image{
+                                position: absolute; 
+                                margin-top: 20px;
+                                 margin-left: 43%;
                             }
+
+
 
                         }
                         @media (max-width: $mobile-break) {
                             flex-direction: column;
-                            .input-wrapper-2{
-                                margin-top: 60px;
+                            margin-bottom: 10px;
+
+                            .input-wrapper{
+                                & > .lari-image{
+                                    margin-left: 90%;
+                                }
                             }
+
+
                         }
                         @extend %error;
                         @extend %radioError; 
@@ -584,7 +643,7 @@ body{
                             }
                             & > label{
                                 font-weight: 400;
-                                margin-right: 100px;
+                                margin-right: 50px;
                                 cursor: pointer;
 
 
@@ -615,11 +674,9 @@ body{
 
                         .laptop-brand-dropdown, .cpu-dropdown{
                             position: relative;
-                            margin-top: 15px;
+                            margin-top: 40px;
+                            height: 60px;
 
-                            // @media (max-width: $mobile-break) {
-                            //     margin-top: 40px;
-                            // }
                        
                             & > input{
                                 width: 100%;
@@ -677,7 +734,7 @@ body{
 
                         .cpu-dropdown{
                             margin-right: 50px;
-                            margin-top:15px;
+                            margin-top:45px;
                         }
 
                     }
@@ -688,6 +745,10 @@ body{
                         height: 1px;
                         border: none;
                         margin-bottom: 30px;
+
+                        @media (max-width: $mobile-break) {
+                            margin-bottom: 5px;
+                        }
                     }
 
                     .button-box{
@@ -696,6 +757,10 @@ body{
                         justify-content: space-between;
                         width: 100%;
                         margin-top: 20px;
+
+                        @media (max-width: $mobile-break) {
+                            margin-top: 50px;
+                        }   
 
 
                         a > button{
@@ -787,17 +852,24 @@ body{
                 }
             }
         }
-        // @media (max-width: $mobile-break) {
-        //     background-color: white;
-        //     .modal-content{
-        //         width: 100%;
-        //         border: none;
-        //         a > button{
-        //             width: 95%;
-        //         }
-        //     }
+        @media (max-width: $mobile-break) {
+            background-color: white;
+            .modal-content{
+                width: 100%;
+                height: 100%;
+                border: none;
+                justify-content: center;
 
-        // }
+                img{
+                    height: 250px;
+                }
+                button{
+                    margin-top: 100px;
+                    width: 90%;
+                }
+            }
+
+        }
 
     }
 }

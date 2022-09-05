@@ -190,10 +190,11 @@ body .container-2 .titles > h1 {
     flex-direction: column;
     margin: 25px auto;
     margin-bottom: 10px;
-    width: 175px;
+    width: 220px;
   }
   body .container-2 .titles h3 {
     font-size: 16px;
+    text-align: center;
   }
   body .container-2 .titles h3 hr {
     display: none;
@@ -270,17 +271,27 @@ body .container-2 .s-1 .form-wrapper form .input-wrapper > p {
   font-weight: 300;
   font-size: small;
 }
+body .container-2 .s-1 .form-wrapper form .input-wrapper .err2 {
+  display: none;
+}
 @media (max-width: 390px) {
   body .container-2 .s-1 .form-wrapper form .input-flex {
     flex-direction: column;
     width: 100%;
+    margin-top: 20px;
   }
   body .container-2 .s-1 .form-wrapper form .input-flex .input-wrapper {
     width: 92%;
-    margin-left: 4%;
+    margin: 15px 4%;
   }
   body .container-2 .s-1 .form-wrapper form .input-wrapper {
     width: 92%;
+  }
+  body .container-2 .s-1 .form-wrapper form .input-wrapper .err1 {
+    display: none;
+  }
+  body .container-2 .s-1 .form-wrapper form .input-wrapper .err2 {
+    display: block;
   }
 }
 body .container-2 .s-1 .form-wrapper form .teams-dropdown {
@@ -394,7 +405,7 @@ body .container-2 .logo-wrapper > img {
 
 body .container-2 .s-2 .form-wrapper {
   max-width: 1226px;
-  height: 1400px;
+  height: 1500px;
   margin: auto;
   border-radius: 18px;
   position: relative;
@@ -404,10 +415,8 @@ body .container-2 .s-2 .form-wrapper {
 @media (max-width: 390px) {
   body .container-2 .s-2 .form-wrapper {
     border-radius: 0px;
-    height: 2000px;
-  }
-  body .container-2 .s-2 .form-wrapper form {
-    height: 1800px;
+    height: 1650px;
+    box-shadow: none;
   }
 }
 body .container-2 .s-2 .form-wrapper form {
@@ -443,6 +452,9 @@ body .container-2 .s-2 .form-wrapper form .drag-area > img {
 body .container-2 .s-2 .form-wrapper form .drag-area .input-wrapper .content {
   width: 200px;
 }
+body .container-2 .s-2 .form-wrapper form .drag-area .input-wrapper .content .camera-image {
+  display: none;
+}
 body .container-2 .s-2 .form-wrapper form .drag-area .input-wrapper .content .error-image {
   width: 40px;
   display: none;
@@ -458,6 +470,9 @@ body .container-2 .s-2 .form-wrapper form .drag-area .input-wrapper .content h2 
   text-align: center;
   line-height: 38px;
   line-height: 38px;
+}
+body .container-2 .s-2 .form-wrapper form .drag-area .input-wrapper .content h3 {
+  display: none;
 }
 body .container-2 .s-2 .form-wrapper form .drag-area .input-wrapper .content button {
   background-color: #62A1EB;
@@ -475,23 +490,43 @@ body .container-2 .s-2 .form-wrapper form .drag-area .input-wrapper.error h2 {
 }
 @media (max-width: 390px) {
   body .container-2 .s-2 .form-wrapper form {
+    height: 1500px;
     width: 90%;
   }
   body .container-2 .s-2 .form-wrapper form .drag-area {
     height: 214px;
     margin-top: -20px;
     border-radius: 8px;
+    margin-bottom: 0px;
   }
-  body .container-2 .s-2 .form-wrapper form .drag-area h2 {
+  body .container-2 .s-2 .form-wrapper form .drag-area .input-wrapper > .content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  body .container-2 .s-2 .form-wrapper form .drag-area .input-wrapper > .content h2 {
     display: none;
   }
-  body .container-2 .s-2 .form-wrapper form .drag-area button {
+  body .container-2 .s-2 .form-wrapper form .drag-area .input-wrapper > .content h3 {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    color: #4386A9;
+    line-height: 26px;
+  }
+  body .container-2 .s-2 .form-wrapper form .drag-area .input-wrapper > .content button {
     display: none;
   }
-  body .container-2 .s-2 .form-wrapper form .drag-area .camera-image {
+  body .container-2 .s-2 .form-wrapper form .drag-area .input-wrapper > .content .camera-image {
     display: block;
   }
-  body .container-2 .s-2 .form-wrapper form .drag-area h3 {
+  body .container-2 .s-2 .form-wrapper form .drag-area .input-wrapper > .content .err2-image {
+    width: 25px;
+    margin-top: -5px;
+    margin-right: 40%;
+  }
+  body .container-2 .s-2 .form-wrapper form .drag-area .input-wrapper > .content h3 {
     display: block;
   }
 }
@@ -523,15 +558,29 @@ body .container-2 .s-2 .form-wrapper form .image-info button:hover {
 body .container-2 .s-2 .form-wrapper form .image-info button:focus {
   background-color: #1A5DAB;
 }
+@media (max-width: 390px) {
+  body .container-2 .s-2 .form-wrapper form .image-info {
+    margin: 10px 0;
+  }
+  body .container-2 .s-2 .form-wrapper form .image-info > div {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 40%;
+  }
+  body .container-2 .s-2 .form-wrapper form .image-info button {
+    width: 60%;
+  }
+}
 body .container-2 .s-2 .form-wrapper form .input-box {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
   width: 100%;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 body .container-2 .s-2 .form-wrapper form .input-box .input-wrapper {
   width: 100%;
+  margin-top: 25px;
 }
 body .container-2 .s-2 .form-wrapper form .input-box .input-wrapper:nth-child(1) {
   margin-right: 50px;
@@ -561,15 +610,18 @@ body .container-2 .s-2 .form-wrapper form .input-box .input-wrapper > p {
   font-weight: 300;
   font-size: small;
 }
-body .container-2 .s-2 .form-wrapper form .input-box .input-wrapper img {
-  margin-left: 30px;
+body .container-2 .s-2 .form-wrapper form .input-box .input-wrapper > .lari-image {
+  position: absolute;
+  margin-top: 20px;
+  margin-left: 43%;
 }
 @media (max-width: 390px) {
   body .container-2 .s-2 .form-wrapper form .input-box {
     flex-direction: column;
+    margin-bottom: 10px;
   }
-  body .container-2 .s-2 .form-wrapper form .input-box .input-wrapper-2 {
-    margin-top: 60px;
+  body .container-2 .s-2 .form-wrapper form .input-box .input-wrapper > .lari-image {
+    margin-left: 90%;
   }
 }
 body .container-2 .s-2 .form-wrapper form .input-box .radio > div, body .container-2 .s-2 .form-wrapper form .input-box .laptop-radio > div {
@@ -590,7 +642,7 @@ body .container-2 .s-2 .form-wrapper form .input-box .radio > div > h1, body .co
 }
 body .container-2 .s-2 .form-wrapper form .input-box .radio > label, body .container-2 .s-2 .form-wrapper form .input-box .laptop-radio > label {
   font-weight: 400;
-  margin-right: 100px;
+  margin-right: 50px;
   cursor: pointer;
 }
 body .container-2 .s-2 .form-wrapper form .input-box .radio > label > input, body .container-2 .s-2 .form-wrapper form .input-box .laptop-radio > label > input {
@@ -609,7 +661,8 @@ body .container-2 .s-2 .form-wrapper form .input-box .radio > label > input:chec
 }
 body .container-2 .s-2 .form-wrapper form .input-box .laptop-brand-dropdown, body .container-2 .s-2 .form-wrapper form .input-box .cpu-dropdown {
   position: relative;
-  margin-top: 15px;
+  margin-top: 40px;
+  height: 60px;
 }
 body .container-2 .s-2 .form-wrapper form .input-box .laptop-brand-dropdown > input, body .container-2 .s-2 .form-wrapper form .input-box .cpu-dropdown > input {
   width: 100%;
@@ -656,7 +709,7 @@ body .container-2 .s-2 .form-wrapper form .input-box .laptop-brand-dropdown.erro
 }
 body .container-2 .s-2 .form-wrapper form .input-box .cpu-dropdown {
   margin-right: 50px;
-  margin-top: 15px;
+  margin-top: 45px;
 }
 body .container-2 .s-2 .form-wrapper form hr {
   width: 100%;
@@ -665,12 +718,22 @@ body .container-2 .s-2 .form-wrapper form hr {
   border: none;
   margin-bottom: 30px;
 }
+@media (max-width: 390px) {
+  body .container-2 .s-2 .form-wrapper form hr {
+    margin-bottom: 5px;
+  }
+}
 body .container-2 .s-2 .form-wrapper form .button-box {
   display: flex;
   align-items: center;
   justify-content: space-between;
   width: 100%;
   margin-top: 20px;
+}
+@media (max-width: 390px) {
+  body .container-2 .s-2 .form-wrapper form .button-box {
+    margin-top: 50px;
+  }
 }
 body .container-2 .s-2 .form-wrapper form .button-box a > button {
   color: #8AC0E2;
@@ -744,4 +807,22 @@ body .modal .modal-content button:hover {
 }
 body .modal .modal-content button:focus {
   background-color: #1A5DAB;
+}
+@media (max-width: 390px) {
+  body .modal {
+    background-color: white;
+  }
+  body .modal .modal-content {
+    width: 100%;
+    height: 100%;
+    border: none;
+    justify-content: center;
+  }
+  body .modal .modal-content img {
+    height: 250px;
+  }
+  body .modal .modal-content button {
+    margin-top: 100px;
+    width: 90%;
+  }
 }/*# sourceMappingURL=global.css.map */
